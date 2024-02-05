@@ -8,7 +8,8 @@ export default {
       white: "#ffffff",
       primary: "#000",
       placeholder: "#909090",
-      gray1: '#F0F0F0'
+      gray1: "#F0F0F0",
+      lightGray: "#F2F0F1",
     },
   },
   plugins: [],
