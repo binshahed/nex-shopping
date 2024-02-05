@@ -5,7 +5,9 @@ import Home from "./Page/Home/Home";
 function App() {
   return (
     <BrowserRouter>
-      <Home />
+      <div className="overflow-hidden">
+        <Home />
+      </div>
     </BrowserRouter>
   );
 }

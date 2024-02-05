@@ -10,7 +10,7 @@ const TopNav = () => {
       {show && (
         <div className="bg-primary py-1">
           <div className="container mx-auto">
-            <div className="grid grid-cols-12 gap-4 ">
+            <div className="grid grid-cols-12">
               <div className="col-span-11">
                 <p className="text-white text-center">
                   Sign up and get 20% off to your first order.{" "}

@@ -1,11 +1,13 @@
-import MainNav from "../../components/nav/MainNav";
-import TopNav from "../../components/nav/TopNav";
+import MainNav from "../../features/nav/MainNav";
+import TopNav from "../../features/nav/TopNav";
+import TopBanner from "../../features/topBanner/TopBanner";
 
 const Home = () => {
   return (
     <div>
       <TopNav />
       <MainNav />
+      <TopBanner />
     </div>
   );
 };
