@@ -5,6 +5,7 @@ import ProductDetailPage from "./Page/ProductDetail/ProductDetailPage";
 import TopNav from "./features/nav/TopNav";
 import MainNav from "./features/nav/MainNav";
 import Footer from "./features/footer/Footer";
+import CartPage from "./Page/CartPage/CartPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <MainNav />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/product/:productId" element={<ProductDetailPage />} />
         </Routes>
         <Footer />

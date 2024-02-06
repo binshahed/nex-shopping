@@ -13,13 +13,13 @@ const ProductGallery = () => {
 
   return (
     <div className="grid grid-cols-12 gap-3">
-      <div className="col-span-12 md:col-span-3">
+      <div className="col-span-12  md:col-span-3">
         {images
           ?.filter((im) => im !== previewImg)
           .map((im, i) => (
             <img
-              onClick={() => handlePreviewImage(im)}
               key={i}
+              onClick={() => handlePreviewImage(im)}
               className="mb-3 border rounded-xl"
               src={im}
               alt=""
