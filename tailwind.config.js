@@ -2,6 +2,16 @@
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+        sm: "2rem",
+        lg: "4rem",
+        xl: "5rem",
+        "2xl": "6rem",
+      },
+    },
     extend: {},
     colors: {
       transparent: "transparent",
@@ -11,6 +21,7 @@ export default {
       placeholder: "#909090",
       gray1: "#F0F0F0",
       lightGray: "#F2F0F1",
+      red: "#FF3333",
     },
   },
   plugins: [],

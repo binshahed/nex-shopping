@@ -51,11 +51,13 @@ const MainNav = () => {
                 />
               </svg>
             </button>
-            <img
-              src={brandLogo}
-              alt="Brand Logo"
-              className="mb-4 md:mb-0 md:mr-4 p-2"
-            />
+            <Link to="/">
+              <img
+                src={brandLogo}
+                alt="Brand Logo"
+                className="mb-4 md:mb-0 md:mr-4 p-2"
+              />
+            </Link>
             <div className="flex items-center ml-4 md:hidden">
               <FontAwesomeIcon
                 icon={faCartShopping}

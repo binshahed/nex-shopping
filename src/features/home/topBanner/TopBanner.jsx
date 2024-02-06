@@ -1,5 +1,5 @@
-import bannerImg from "../../assets/banner/banner-img.png";
-import Button from "../../components/buttons/Button";
+import bannerImg from "../../../assets/banner/model.png";
+import Button from "../../../components/buttons/Button";
 
 const TopBanner = () => {
   return (
@@ -11,7 +11,7 @@ const TopBanner = () => {
               <h1 className="text-7xl font-black pt-40">
                 FIND CLOTHES <br /> THAT MATCHES <br /> YOUR STYLE
               </h1>
-              <p className="md:pr-40">
+              <p className="md:pr-40 mb-4">
                 Browse through our diverse range of meticulously crafted
                 garments, designed to bring out your individuality and cater to
                 your sense of style.
@@ -21,7 +21,7 @@ const TopBanner = () => {
                 Shop Now
               </Button>
             </div>
-            <div className="grid grid-cols-12">
+            <div className="grid grid-cols-12 mt-4">
               <div className="col-span-4 ">
                 <p className="text-2xl font-bold">200+</p>
                 <p>International Brands</p>
