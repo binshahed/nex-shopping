@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 
-const Button = ({ children, bg, text, border, handleButtonClick }) => {
+const Button = ({ children, bg, text, border, handleButtonClick, styles }) => {
   return (
     <button
-      onClick={handleButtonClick }
+      onClick={handleButtonClick}
       className={`bg-${bg || "white"} text-${
         text || "primary"
-      } p-2 px-8 rounded-3xl text-center my-5  hover:bg-placeholder ${
+      } ${styles} p-2  px-8 rounded-3xl text-center  hover:bg-placeholder ${
         border && "border transition delay-150 hover:text-white"
       }`}
     >
