@@ -6,6 +6,7 @@ export default {
     colors: {
       transparent: "transparent",
       white: "#ffffff",
+      yellow: "#FFC633",
       primary: "#000",
       placeholder: "#909090",
       gray1: "#F0F0F0",

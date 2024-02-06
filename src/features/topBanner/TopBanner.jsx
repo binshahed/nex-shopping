@@ -1,4 +1,5 @@
 import bannerImg from "../../assets/banner/banner-img.png";
+import Button from "../../components/buttons/Button";
 
 const TopBanner = () => {
   return (
@@ -10,12 +11,29 @@ const TopBanner = () => {
               <h1 className="text-7xl font-black pt-40">
                 FIND CLOTHES <br /> THAT MATCHES <br /> YOUR STYLE
               </h1>
-              <p>
+              <p className="md:pr-40">
                 Browse through our diverse range of meticulously crafted
                 garments, designed to bring out your individuality and cater to
                 your sense of style.
               </p>
-              <button className="bg-primary text-white p-2 px-8 rounded-3xl text-center mt-5">Shop Now</button>
+
+              <Button bg="primary" text="white">
+                Shop Now
+              </Button>
+            </div>
+            <div className="grid grid-cols-12">
+              <div className="col-span-4 ">
+                <p className="text-2xl font-bold">200+</p>
+                <p>International Brands</p>
+              </div>
+              <div className="col-span-4">
+                <p className="text-2xl font-bold">2,000+</p>
+                <p>International Brands</p>
+              </div>
+              <div className="col-span-4">
+                <p className="text-2xl font-bold">30,000+</p>
+                <p>Happy Customers</p>
+              </div>
             </div>
           </div>
           <div className="col-span-12 sm:col-span-12 md:col-span-5">
