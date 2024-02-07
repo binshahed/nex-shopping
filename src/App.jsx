@@ -6,6 +6,8 @@ import TopNav from "./features/nav/TopNav";
 import MainNav from "./features/nav/MainNav";
 import Footer from "./features/footer/Footer";
 import CartPage from "./Page/CartPage/CartPage";
+import SignIn from "./Page/SignIn/SignInPage";
+import SignUp from "./Page/SignUp/SignUp";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/cart" element={<CartPage />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/product/:productId" element={<ProductDetailPage />} />
         </Routes>
         <Footer />

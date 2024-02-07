@@ -7,6 +7,7 @@ import {
 import brandLogo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import Dropdown from "../../components/Dropdown";
 
 const MainNav = () => {
   const navItems = [
@@ -105,10 +106,12 @@ const MainNav = () => {
                 icon={faCartShopping}
                 className="text-xl cursor-pointer"
               />
-              <FontAwesomeIcon
-                icon={faUser}
-                className="text-xl cursor-pointer ml-4"
-              />
+              <Dropdown>
+                <FontAwesomeIcon
+                  icon={faUser}
+                  className="text-xl cursor-pointer ml-4"
+                />
+              </Dropdown>
             </div>
           </div>
         </nav>
