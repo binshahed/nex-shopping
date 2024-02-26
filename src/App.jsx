@@ -9,11 +9,14 @@ import CartPage from "./Page/CartPage/CartPage";
 import SignIn from "./Page/SignIn/SignInPage";
 import SignUp from "./Page/SignUp/SignUp";
 import AddProduct from "./Page/AddProduct";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="overflow-hidden">
+      <ToastContainer position="top-right" autoClose={5000} />
         <TopNav />
         <MainNav />
         <Routes>

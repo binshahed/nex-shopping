@@ -1,8 +1,14 @@
 /* eslint-disable react/prop-types */
 // Dropdown.js
 
+import { Link } from "react-router-dom";
+
 const Dropdown = ({ children }) => {
-  const dropdownItems = ["Item 1", "Item 2", "Item 3"];
+  const dropdownItems = [
+    { name: "login", to: "/signin" },
+    { name: "Item 1", to: "/" },
+    { name: "Item 1", to: "/" },
+  ];
 
   return (
     <div className="relative inline-block text-left">
@@ -16,14 +22,15 @@ const Dropdown = ({ children }) => {
             aria-labelledby="options-menu"
           >
             {dropdownItems.map((item, index) => (
-              <a
+              <Link
+                to={item.to}
                 key={index}
                 href="#"
                 className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-800 hover:bg-gray1"
                 role="menuitem"
               >
-                {item}
-              </a>
+                {item.name}
+              </Link>
             ))}
           </div>
         </div>

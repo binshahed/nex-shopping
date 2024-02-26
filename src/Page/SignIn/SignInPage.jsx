@@ -1,6 +1,26 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
+import { useForm } from "react-hook-form";
+import { useSignInMutation } from "../../store/features/auth/authApi.js";
+import useToast from "../../hooks/useTostMessage.js";
+
 const SignIn = () => {
+  const { register, handleSubmit } = useForm();
+
+  const { showToast } = useToast();
+
+  const [signIn, { data, isError, isLoading, error }] = useSignInMutation();
+
+  const onSubmit = async (formData) => {
+    signIn(formData);
+  };
+
+  if (isError) {
+    showToast(error.data, "error");
+  } else if (data) {
+    showToast(data.message, "success");
+  }
+
   return (
     <section className="bg-gray-50 dark:bg-gray-900 py-32">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">
@@ -15,7 +35,10 @@ const SignIn = () => {
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Sign in to your account
             </h1>
-            <form className="space-y-4 md:space-y-6" action="#">
+            <form
+              className="space-y-4 md:space-y-6"
+              onSubmit={handleSubmit(onSubmit)}
+            >
               <div>
                 <label
                   htmlFor="email"
@@ -24,12 +47,13 @@ const SignIn = () => {
                   Your email
                 </label>
                 <input
+                  required
+                  {...register("email")}
                   type="email"
                   name="email"
                   id="email"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
-                  required=""
                 />
               </div>
               <div>
@@ -40,12 +64,13 @@ const SignIn = () => {
                   Password
                 </label>
                 <input
+                  {...register("password")}
                   type="password"
                   name="password"
                   id="password"
                   placeholder="••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required=""
+                  required
                 />
               </div>
               <div className="flex items-center justify-between">
@@ -76,21 +101,22 @@ const SignIn = () => {
                 </a>
               </div>
               <button
+                disabled={isLoading}
                 type="submit"
-                className="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                className="w-full text-white disabled:cursor-not-allowed bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
                 Sign in
               </button>
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                Don’t have an account yet?{" "}
-                <Link
-                  to="/signup"
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                >
-                  Sign up
-                </Link>
-              </p>
             </form>
+            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+              Don’t have an account yet?{" "}
+              <Link
+                to="/signup"
+                className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+              >
+                Sign up
+              </Link>
+            </p>
           </div>
         </div>
       </div>
