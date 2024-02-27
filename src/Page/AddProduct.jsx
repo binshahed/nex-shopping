@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 
 const AddProduct = () => {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     console.log("data", data?.photoUrl[0]);
@@ -34,8 +34,6 @@ const AddProduct = () => {
   };
   return (
     <div className="py-20">
-      <h1>product add</h1>
-
       <form className="max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>
         <div className="relative z-0 w-full mb-5 group">
           <input

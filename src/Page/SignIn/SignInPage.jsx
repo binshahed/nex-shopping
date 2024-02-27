@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useForm } from "react-hook-form";
 import { useSignInMutation } from "../../store/features/auth/authApi.js";
 import useToast from "../../hooks/useTostMessage.js";
+import Spinner from "../../components/global/Spiner.jsx";
 
 const SignIn = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
 
   const { showToast } = useToast();
@@ -19,6 +21,7 @@ const SignIn = () => {
     showToast(error.data, "error");
   } else if (data) {
     showToast(data.message, "success");
+    navigate(-1);
   }
 
   return (
@@ -100,13 +103,16 @@ const SignIn = () => {
                   Forgot password?
                 </a>
               </div>
-              <button
-                disabled={isLoading}
-                type="submit"
-                className="w-full text-white disabled:cursor-not-allowed bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Sign in
-              </button>
+              {isLoading ? (
+                <Spinner />
+              ) : (
+                <button
+                  type="submit"
+                  className="w-full text-white disabled:cursor-not-allowed bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                >
+                  Sign in
+                </button>
+              )}
             </form>
             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
               Don’t have an account yet?{" "}

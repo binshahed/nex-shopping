@@ -11,22 +11,45 @@ import SignUp from "./Page/SignUp/SignUp";
 import AddProduct from "./Page/AddProduct";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import useAuthCheck from "./hooks/useAuthCheck";
+import PrivateRoute from "./router/PrivateRoute";
+import PublicRoute from "./router/PublicRoute";
 
 function App() {
+  const authCheck = useAuthCheck();
+
   return (
     <BrowserRouter>
       <div className="overflow-hidden">
-      <ToastContainer position="top-right" autoClose={5000} />
+        <ToastContainer position="top-right" autoClose={5000} />
         <TopNav />
         <MainNav />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/addProduct" element={<AddProduct />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/product/:productId" element={<ProductDetailPage />} />
-        </Routes>
+        {!authCheck ? (
+          <div>Loading...</div>
+        ) : (
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route
+              path="/addProduct"
+              element={
+                <PrivateRoute>
+                  <AddProduct />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/cart" element={<CartPage />} />
+            <Route
+              path="/signin"
+              element={
+                <PublicRoute>
+                  <SignIn />
+                </PublicRoute>
+              }
+            />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/product/:productId" element={<ProductDetailPage />} />
+          </Routes>
+        )}
         <Footer />
       </div>
     </BrowserRouter>

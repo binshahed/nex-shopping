@@ -1,14 +1,20 @@
 /* eslint-disable react/prop-types */
-// Dropdown.js
 
 import { Link } from "react-router-dom";
+import Button from "./buttons/Button";
+import { useDispatch } from "react-redux";
+import { userLoggedOut } from "../store/features/auth/authSlice";
 
 const Dropdown = ({ children }) => {
+  const dispatch = useDispatch();
   const dropdownItems = [
-    { name: "login", to: "/signin" },
     { name: "Item 1", to: "/" },
     { name: "Item 1", to: "/" },
   ];
+
+  const handleLogout = () => {
+    dispatch(userLoggedOut());
+  };
 
   return (
     <div className="relative inline-block text-left">
@@ -21,6 +27,14 @@ const Dropdown = ({ children }) => {
             aria-orientation="vertical"
             aria-labelledby="options-menu"
           >
+            <Link
+              to="/login"
+              className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-800 hover:bg-gray1"
+              role="menuitem"
+            >
+              Login
+            </Link>
+            <Button handleButtonClick={handleLogout}>Logout</Button>
             {dropdownItems.map((item, index) => (
               <Link
                 to={item.to}

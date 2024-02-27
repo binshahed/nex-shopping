@@ -12,17 +12,13 @@ export const authApi = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const result = await queryFulfilled;
-          console.log("result", result);
 
-          // Check the actual structure of the response and adjust accordingly
           const { token, user } = result.data;
 
           localStorage.setItem("auth", JSON.stringify({ token, user }));
           dispatch(userLoggedIn({ token, user }));
         } catch (err) {
-          // Log or handle the error
           console.error("Error during signup:", err);
-          // You might also dispatch an action to handle the error state
         }
       },
     }),
@@ -36,10 +32,12 @@ export const authApi = apiSlice.injectEndpoints({
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const result = await queryFulfilled;
-          localStorage.setItem("auth", JSON.stringify(result.data.token));
-          dispatch(
-            userLoggedIn({ token: result.data.token, user: result.data.user })
-          );
+          const auth = {
+            token: result.data.token,
+            user: result.data.user,
+          };
+          localStorage.setItem("auth", JSON.stringify(auth));
+          dispatch(userLoggedIn(auth));
         } catch (err) {
           console.log("e", err);
         }
