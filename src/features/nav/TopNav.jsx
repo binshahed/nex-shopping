@@ -1,6 +1,7 @@
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const TopNav = () => {
   const [show, setShow] = useState(true);
@@ -14,9 +15,9 @@ const TopNav = () => {
               <div className="col-span-11">
                 <p className="text-white text-center">
                   Sign up and get 20% off to your first order.{" "}
-                  <a className="underline font-bold" href="">
+                  <Link className="underline font-bold" >
                     Sign Up Now
-                  </a>
+                  </Link>
                 </p>
               </div>
 

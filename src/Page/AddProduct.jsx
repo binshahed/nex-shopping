@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 
 const AddProduct = () => {
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
     console.log("data", data?.photoUrl[0]);
@@ -15,10 +15,10 @@ const AddProduct = () => {
       formData.append("stockQuantity", data.stockQuantity);
       formData.append("photoUrl", data.photoUrl[0]); // Assuming photoUrl is an array due to file input
 
-      const response = await fetch("http://localhost:3001/api/product", {
+      const response = await fetch("http://localhost:3001/api/v1/product", {
         method: "POST",
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM0OWVmMzNhOGQyYzZhYWVmNmM4YWYiLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsIm5hbWUiOiJzaGFoZWQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDc2NDE4MDAsImV4cCI6MTcwODI0NjYwMH0.0h_F-5GvKsuV6DdsLSP4B-5JImLgomIb33caBwvnyZo`,
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM0OWVmMzNhOGQyYzZhYWVmNmM4YWYiLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsIm5hbWUiOiJzaGFoZWQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDg3NzgyMTQsImV4cCI6MTcwOTM4MzAxNH0.BUfWtsX9hx1JE-68whsHv1Ga4H9n53Val4667GHcO3M`,
         },
         body: formData,
       });
@@ -34,8 +34,6 @@ const AddProduct = () => {
   };
   return (
     <div className="py-20">
-      <h1>product add</h1>
-
       <form className="max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>
         <div className="relative z-0 w-full mb-5 group">
           <input
