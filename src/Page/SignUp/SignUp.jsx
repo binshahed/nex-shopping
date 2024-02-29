@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useForm } from "react-hook-form";
 import { useSignUpMutation } from "../../store/features/auth/authApi";
-import useToast from "../../hooks/useTostMessage";
-import Spinner from "../../components/global/Spiner";
+import useToast from "@/hooks/useTostMessage";
+import Spinner from "@/components/global/Spinner";
 
 const SignUp = () => {
   const { register, handleSubmit } = useForm();

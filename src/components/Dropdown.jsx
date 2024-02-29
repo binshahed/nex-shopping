@@ -28,7 +28,7 @@ const Dropdown = ({ children }) => {
             aria-labelledby="options-menu"
           >
             <Link
-              to="/login"
+              to="/signin"
               className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-800 hover:bg-gray1"
               role="menuitem"
             >

@@ -1,10 +1,24 @@
+import { useParams } from "react-router-dom";
 import ProductDetail from "../../features/productDetail/ProductDetail";
 import ProductGallery from "../../features/productDetail/ProductGallery";
 import ReviewCard from "../../features/review/ReviewCard";
 import Subscribe from "../../features/subscribe/Subscribe";
+import { useGetProductQuery } from "../../store/features/product/productApi";
+import { useEffect } from "react";
+import LoadingPage from "../../components/global/LoadingPage";
 
 const ProductDetailPage = () => {
-  return (
+  const { productId } = useParams();
+
+  const { data, isError, isLoading, error } = useGetProductQuery(productId);
+  console.log("detail", data);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return isLoading ? (
+    <LoadingPage />
+  ) : (
     <div className="container mx-auto">
       {/* product detail  */}
       <div className="my-10">
@@ -13,7 +27,7 @@ const ProductDetailPage = () => {
             <ProductGallery />
           </div>
           <div className="col-span-12 md:col-span-6">
-            <ProductDetail />
+            <ProductDetail product={data} />
           </div>
         </div>
       </div>
