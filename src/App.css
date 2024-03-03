@@ -1,0 +1,6 @@
+header {
+    position: sticky;
+    top: 0;
+    background-color: #ffffff; /* Add your desired background color */
+    z-index: 10;
+  }

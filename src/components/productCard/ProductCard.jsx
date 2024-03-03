@@ -9,12 +9,16 @@ import Rating from "./Rating";
 import { Link } from "react-router-dom";
 import { useGetPhotosQuery } from "../../store/features/product/productApi";
 import useToast from "../../hooks/useTostMessage";
+import { useDispatch } from "react-redux";
+import { addToCart, removeFromCart } from "../../store/features/cart/CartSlice";
 
 const ProductCard = ({ product }) => {
   const discountPrice = discountCalculator(
     product?.price,
     product?.discountPercentage
   );
+
+  const dispatch = useDispatch();
 
   const { showToast } = useToast();
 
@@ -28,42 +32,55 @@ const ProductCard = ({ product }) => {
     showToast("Image not found", "error");
   }
 
-  return (
-    <Link to={`/product/${product?._id}`}>
-      <div className="w-full max-w-sm bg-white  rounded-lg  dark:bg-gray-800 dark:border-gray-700 border border-gray1">
-        <img
-          className="p-4 rounded-t-lg h-full "
-          src={productImage}
-          alt={isLoading && "image Loading..."}
-        />
+  const handleCartAdd = () => {
+    dispatch(addToCart(product));
+  };
 
-        <div className="px-5 pb-5">
+  const handleCartRemove = () => {
+    dispatch(removeFromCart(product));
+  };
+
+  return (
+    <div className="w-full max-w-sm bg-white  rounded-lg  dark:bg-gray-800 dark:border-gray-700 border border-gray1">
+      <img
+        className="p-4 rounded-t-lg h-full "
+        src={productImage}
+        alt={isLoading && "image Loading..."}
+      />
+
+      <div className="px-5 pb-5">
+        <Link to={`/product/${product?._id}`}>
           <h5 className="text-xl font-semibold tracking-tight text-primary">
             {product?.name}
           </h5>
+        </Link>
+        <Rating ratings={product?.ratings} />
 
-          <Rating ratings={product?.ratings} />
-
-          <div className="flex items-center justify-between">
-            <div>
-              <span className="text-xl font-bold text-primary mr-2">
-                ${discountPrice}
+        <div className="flex items-center justify-between">
+          <div>
+            <span className="text-xl font-bold text-primary mr-2">
+              ${discountPrice}
+            </span>
+            {product?.discountPercentage > 0 && (
+              <span className="font-bold text-placeholder line-through">
+                ${parseFloat(product?.price)}
               </span>
-              {product?.discountPercentage > 0 && (
-                <span className="font-bold text-placeholder line-through">
-                  ${parseFloat(product?.price)}
-                </span>
-              )}
-            </div>
-            <Tooltip message="Add to cart">
-              <Button text="primary" bg="lightGray">
-                <FontAwesomeIcon icon={faCartPlus} />
-              </Button>
-            </Tooltip>
+            )}
           </div>
+          <button onClick={handleCartAdd}>add to cart</button>
+          <button onClick={handleCartRemove}>remove to cart</button>
+          <Tooltip message="Add to cart">
+            <Button
+              text="primary"
+              bg="lightGray"
+              handleButtonClick={handleCartAdd}
+            >
+              <FontAwesomeIcon icon={faCartPlus} />
+            </Button>
+          </Tooltip>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

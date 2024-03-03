@@ -8,8 +8,12 @@ import brandLogo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Dropdown from "../../components/Dropdown";
+import CartDrawer from "../cart/Drawer/CartDrawer";
+import { useSelector } from "react-redux";
 
 const MainNav = () => {
+  const cart = useSelector((state) => state.cart);
+
   const navItems = [
     { id: 1, name: "Shop", path: "/shop" },
     { id: 2, name: "On Sale", path: "/on-sale" },
@@ -18,20 +22,22 @@ const MainNav = () => {
   ];
 
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
   return (
-    <div className="shadow-md">
+    <div className="shadow-md ">
+      <CartDrawer open={open} setOpen={setOpen} cart={cart} />
       <div className="container mx-auto">
         <nav className="py-4 flex flex-col md:flex-row md:items-center">
           <div className="flex items-center justify-between">
             <button
               onClick={toggleMenu}
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray1 rounded-lg md:hidden hover:bg-gray1 focus:outline-none focus:ring-2 focus:ring-gray1 dark:text-gray-400 dark:hover:bg-gray1 dark:focus:ring-gray1"
               aria-controls="navbar-default"
               aria-expanded={isMenuOpen ? "true" : "false"}
             >
@@ -92,7 +98,7 @@ const MainNav = () => {
                   </div>
                   <input
                     type="search"
-                    className="outline-none block w-full p-2 pl-10 text-sm placeholder-text-placeholder bg-gray1 rounded-2xl bg-gray-50 focus:border-0"
+                    className="outline-none block w-full p-2 pl-10 text-sm placeholder-text-placeholder bg-gray1 rounded-2xl focus:border-0"
                     placeholder="Search for products..."
                     required
                   />
@@ -102,14 +108,26 @@ const MainNav = () => {
           </ul>
           <div className="flex items-center">
             <div className="flex items-center ml-4 hidden md:block mb-4 md:mb-0">
-              <FontAwesomeIcon
-                icon={faCartShopping}
-                className="text-xl cursor-pointer"
-              />
+              <button
+                type="button"
+                className="relative inline-flex items-center p-3 text-sm font-medium text-center text-primary focus:outline-none focus:ring-blue-300 "
+              >
+                <FontAwesomeIcon
+                  onClick={() => setOpen(true)}
+                  icon={faCartShopping}
+                  className="text-xl cursor-pointer"
+                />
+                {cart.items.length > 0 && (
+                  <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red border-2 border-white rounded-full -top-1 -end-1 dark:border-gray1">
+                    {cart.items.length}
+                  </div>
+                )}
+              </button>
+
               <Dropdown>
                 <FontAwesomeIcon
                   icon={faUser}
-                  className="text-xl cursor-pointer ml-4"
+                  className="text-xl cursor-pointer ml-2"
                 />
               </Dropdown>
             </div>

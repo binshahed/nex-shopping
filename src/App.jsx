@@ -21,10 +21,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="overflow-hidden">
+      <header className="sticky top-0 z-50">
+        <div>
+          <TopNav />
+          <MainNav />
+        </div>
+      </header>
+      <main className="overflow-hidden relative">
         <ToastContainer position="top-right" autoClose={5000} />
-        <TopNav />
-        <MainNav />
+
         {!authCheck ? (
           <Spinner />
         ) : (
@@ -52,8 +57,8 @@ function App() {
             <Route path="/*" element={<div>page not found</div>} />
           </Routes>
         )}
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </BrowserRouter>
   );
 }
