@@ -17,6 +17,21 @@ export const productApi = apiSlice.injectEndpoints({
         }
       },
     }),
+    addProducts: builder.mutation({
+      query: (data) => ({
+        url: "/product",
+        method: "POST",
+        body: data,
+      }),
+      async onQueryStarted(arg, { queryFulfilled }) {
+        try {
+          const result = await queryFulfilled;
+          return result;
+        } catch (err) {
+          console.log(err);
+        }
+      },
+    }),
     getPhotos: builder.query({
       query: (id) => ({
         url: `/product/photo/${id}`,
@@ -39,5 +54,9 @@ export const productApi = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useGetProductsQuery, useGetPhotosQuery, useGetProductQuery } =
-  productApi;
+export const {
+  useGetProductsQuery,
+  useGetPhotosQuery,
+  useGetProductQuery,
+  useAddProductsMutation,
+} = productApi;

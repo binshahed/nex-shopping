@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { useGetPhotosQuery } from "../../../store/features/product/productApi";
 import { deleteItemFromCare } from "../../../store/features/cart/CartSlice";
 import AddCart from "../../../components/cart/AddCart";
+import { discountCalculator } from "@/utils/discountCalculator";
 
 const CartDrawerItem = ({ product }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,8 @@ const CartDrawerItem = ({ product }) => {
               <a>{product?.name}</a>
             </h3>
             <p className="ml-4 font-light">
-              {product?.quantity} X {product?.price}
+              {product?.quantity} X{" "}
+              {discountCalculator(product?.price, product?.discountPercentage)}
             </p>
           </div>
         </div>

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { useGetPhotosQuery } from "../../store/features/product/productApi";
 import useToast from "../../hooks/useTostMessage";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../store/features/cart/CartSlice";
+import { addToCart } from "../../store/features/cart/CartSlice";
 
 const ProductCard = ({ product }) => {
   const discountPrice = discountCalculator(
@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
 
   const {
     data: productImage,
-    isLoading,
+    // isLoading,
     isError,
   } = useGetPhotosQuery(product?._id);
 
@@ -36,16 +36,16 @@ const ProductCard = ({ product }) => {
     dispatch(addToCart(product));
   };
 
-  const handleCartRemove = () => {
-    dispatch(removeFromCart(product));
-  };
+  // const handleCartRemove = () => {
+  //   dispatch(removeFromCart(product));
+  // };
 
   return (
     <div className="w-full max-w-sm bg-white  rounded-lg  dark:bg-gray-800 dark:border-gray-700 border border-gray1">
       <img
         className="p-4 rounded-t-lg h-full "
         src={productImage}
-        alt={isLoading && "image Loading..."}
+        alt="image Loading..."
       />
 
       <div className="px-5 pb-5">
@@ -67,8 +67,7 @@ const ProductCard = ({ product }) => {
               </span>
             )}
           </div>
-          <button onClick={handleCartAdd}>add to cart</button>
-          <button onClick={handleCartRemove}>remove to cart</button>
+
           <Tooltip message="Add to cart">
             <Button
               text="primary"

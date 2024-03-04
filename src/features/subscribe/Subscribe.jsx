@@ -4,7 +4,7 @@ import Button from "../../components/buttons/Button";
 
 const Subscribe = () => {
   return (
-    <div className="relative mb-[-70px] container mx-auto">
+    <div className="relative mb-[-70px] container mx-auto z-40">
       <div className="bg-primary text-white rounded-2xl p-10">
         <div className="grid grid-cols-12">
           <div className="col-span-12 md:col-span-6 lg:col-span-6">

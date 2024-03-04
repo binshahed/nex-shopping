@@ -7,6 +7,9 @@ export const authApi = apiSlice.injectEndpoints({
       query: (data) => ({
         url: "/user/signup",
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(data),
       }),
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
@@ -27,6 +30,9 @@ export const authApi = apiSlice.injectEndpoints({
       query: (data) => ({
         url: "/user/signin",
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(data),
       }),
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
