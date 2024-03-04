@@ -1,37 +1,36 @@
 import { useForm } from "react-hook-form";
+import { useAddProductsMutation } from "../store/features/product/productApi";
+import useToast from "../hooks/useTostMessage";
 
 const AddProduct = () => {
   const { register, handleSubmit } = useForm();
+  const [addProducts, { data: productData, isError, error }] =
+    useAddProductsMutation();
+
+  const { showToast } = useToast();
 
   const onSubmit = async (data) => {
     console.log("data", data?.photoUrl[0]);
-    try {
-      const formData = new FormData();
-      formData.append("name", data.name);
-      formData.append("description", data.description);
-      formData.append("price", data.price);
-      formData.append("category", data.category);
-      formData.append("brand", data.brand);
-      formData.append("stockQuantity", data.stockQuantity);
-      formData.append("photoUrl", data.photoUrl[0]); // Assuming photoUrl is an array due to file input
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("description", data.description);
+    formData.append("price", data.price);
+    formData.append("category", data.category);
+    formData.append("brand", data.brand);
+    formData.append("stockQuantity", data.stockQuantity);
+    formData.append("photoUrl", data.photoUrl[0]);
 
-      const response = await fetch("http://localhost:3001/api/v1/product", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWM0OWVmMzNhOGQyYzZhYWVmNmM4YWYiLCJlbWFpbCI6InRlc3QxQGdtYWlsLmNvbSIsIm5hbWUiOiJzaGFoZWQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDg3NzgyMTQsImV4cCI6MTcwOTM4MzAxNH0.BUfWtsX9hx1JE-68whsHv1Ga4H9n53Val4667GHcO3M`,
-        },
-        body: formData,
-      });
-
-      if (response.ok) {
-        console.log("Product uploaded successfully");
-      } else {
-        console.error("Error uploading product:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error:", error.message);
-    }
+    // add product data
+    addProducts(formData);
   };
+
+  // error message
+  if (isError) {
+    showToast(error.data, "error");
+  } else if (productData) {
+    showToast(productData.message, "success");
+  }
+
   return (
     <div className="py-20">
       <form className="max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>

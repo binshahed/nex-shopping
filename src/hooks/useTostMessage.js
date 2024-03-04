@@ -6,16 +6,16 @@ const useToast = () => {
   const showToast = (message, type = "info") => {
     switch (type) {
       case "success":
-        toast.success(message,{toastId:message});
+        toast.success(message, { toastId: message });
         break;
       case "error":
-        toast.error(message,{toastId:message});
+        toast.error(message, { toastId: message });
         break;
       case "warning":
-        toast.warning(message,{toastId:message});
+        toast.warning(message, { toastId: message });
         break;
       default:
-        toast.info(message,{toastId:message});
+        toast.info(message, { toastId: message });
     }
   };
 
