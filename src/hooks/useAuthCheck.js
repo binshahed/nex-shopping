@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { userLoggedIn } from "../store/features/auth/authSlice";
+import { userLoggedIn } from "@/store/features/auth/authSlice";
 
 const useAuthCheck = () => {
   const [authChecked, setAuthChecked] = useState(false);

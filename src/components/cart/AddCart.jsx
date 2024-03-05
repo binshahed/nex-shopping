@@ -2,7 +2,7 @@
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../../store/features/cart/CartSlice";
+import { addToCart, removeFromCart } from "@/store/features/cart/CartSlice";
 
 const AddCart = ({ product }) => {
   const dispatch = useDispatch();

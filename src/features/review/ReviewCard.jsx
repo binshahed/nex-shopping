@@ -1,11 +1,11 @@
-import Rating from "../../components/productCard/Rating";
+import Rating from "@/components/productCard/Rating";
 
 const ReviewCard = () => {
   return (
     <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mr-10">
       <Rating ratings="4" />
       <a href="#">
-        <h5 className="mb-2 text-2xl font-semibold tracking-tight text-primary">
+        <h5 className="mb-2 text-2xl font-semibold tracking-tight ">
           Need a help in Claim?
         </h5>
       </a>

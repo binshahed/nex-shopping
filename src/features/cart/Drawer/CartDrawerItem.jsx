@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
 import { useDispatch } from "react-redux";
-import { useGetPhotosQuery } from "../../../store/features/product/productApi";
-import { deleteItemFromCare } from "../../../store/features/cart/CartSlice";
-import AddCart from "../../../components/cart/AddCart";
+import { useGetPhotosQuery } from "@/store/features/product/productApi";
+import { deleteItemFromCare } from "@/store/features/cart/CartSlice";
+import AddCart from "@/components/cart/AddCart";
 import { discountCalculator } from "@/utils/discountCalculator";
 
 const CartDrawerItem = ({ product }) => {

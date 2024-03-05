@@ -4,7 +4,7 @@ import { getProducts } from "./productSlice";
 export const productApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: () => ({
+      query: () => ({ 
         url: "/product",
         method: "GET",
       }),

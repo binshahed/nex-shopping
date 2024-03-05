@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 
-import CartSummary from "../../features/cart/CartSummary";
-import Subscribe from "../../features/subscribe/Subscribe";
-import CartItem from "../../features/cart/CartItem";
+import CartSummary from "@/features/cart/CartSummary";
+import Subscribe from "@/features/subscribe/Subscribe";
+import CartItem from "@/features/cart/CartItem";
 
 const CartPage = () => {
   const cart = useSelector((state) => state.cart);

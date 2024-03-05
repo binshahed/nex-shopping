@@ -4,10 +4,10 @@ import {
   faSearch,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
-import brandLogo from "../../assets/logo.png";
+import brandLogo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Dropdown from "../../components/Dropdown";
+import Dropdown from "@/components/Dropdown";
 import CartDrawer from "../cart/Drawer/CartDrawer";
 import { useSelector } from "react-redux";
 
@@ -110,7 +110,7 @@ const MainNav = () => {
             <div className="flex items-center ml-4 hidden md:block mb-4 md:mb-0">
               <button
                 type="button"
-                className="relative inline-flex items-center p-3 text-sm font-medium text-center text-primary focus:outline-none focus:ring-blue-300 "
+                className="relative inline-flex items-center p-3 text-sm font-medium text-center focus:outline-none"
               >
                 <FontAwesomeIcon
                   onClick={() => setOpen(true)}

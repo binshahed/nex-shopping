@@ -1,6 +1,6 @@
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "../../components/buttons/Button";
+import Button from "@/components/buttons/Button";
 
 const Subscribe = () => {
   return (

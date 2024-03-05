@@ -1,16 +1,16 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import Rating from "../../components/productCard/Rating";
-import { discountCalculator } from "../../utils/discountCalculator";
-import Button from "../../components/buttons/Button";
+import Rating from "@/components/productCard/Rating";
+import { discountCalculator } from "@/utils/discountCalculator";
+import Button from "@/components/buttons/Button";
 import ProductDetailCart from "./ProductDetailCart";
 
 import { useEffect } from "react";
 
 const ProductDetail = ({ product }) => {
-  const {name, discountPercentage, price } = product;
+  const { name, discountPercentage, price } = product;
 
-  const discountPrice = discountCalculator( price, discountPercentage);
+  const discountPrice = discountCalculator(price, discountPercentage);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,9 +23,7 @@ const ProductDetail = ({ product }) => {
         <Rating ratings="4" />
         <p>
           {" "}
-          <span className="text-3xl font-bold text-primary mr-2">
-            ${discountPrice}
-          </span>
+          <span className="text-3xl font-bold  mr-2">${discountPrice}</span>
           <span className="font-bold text-xl text-placeholder line-through">
             ${price}
           </span>

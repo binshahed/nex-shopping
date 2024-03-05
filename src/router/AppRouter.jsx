@@ -10,6 +10,7 @@ import AddProduct from "@/Page/AddProduct";
 import useAuthCheck from "@/hooks/useAuthCheck";
 import Spinner from "@/components/global/Spinner";
 import AdminRoute from "./AdminRoute";
+import PublicRoute from "./PublicRoute";
 
 const AppRouter = () => {
   const authCheck = useAuthCheck();
@@ -29,8 +30,22 @@ const AppRouter = () => {
             }
           />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/signin"
+            element={
+              <PublicRoute>
+                <SignIn />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <PublicRoute>
+                <SignUp />
+              </PublicRoute>
+            }
+          />
           <Route path="/product/:productId" element={<ProductDetailPage />} />
           <Route path="/*" element={<div>page not found</div>} />
         </Routes>

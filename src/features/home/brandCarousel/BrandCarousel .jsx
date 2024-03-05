@@ -1,9 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import logo1 from "../../../assets/brandLogo/Group.png";
-import logo2 from "../../../assets/brandLogo/gucci-logo.png";
-import logo3 from "../../../assets/brandLogo/prada-logo.png";
-import logo4 from "../../../assets/brandLogo/Vector.png";
-import logo5 from "../../../assets/brandLogo/zara-logo.png";
+import logo1 from "@/assets/brandLogo/Group.png";
+import logo2 from "@/assets/brandLogo/gucci-logo.png";
+import logo3 from "@/assets/brandLogo/prada-logo.png";
+import logo4 from "@/assets/brandLogo/Vector.png";
+import logo5 from "@/assets/brandLogo/zara-logo.png";
 
 // Import Swiper styles
 import "swiper/css";
