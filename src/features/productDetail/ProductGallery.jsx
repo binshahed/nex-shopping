@@ -1,8 +1,8 @@
 import { useState } from "react";
-import product1 from "../../assets/products/product-1.jpg";
-import product2 from "../../assets/products/product-2.jpg";
-import product3 from "../../assets/products/product-3.jpg";
-import product4 from "../../assets/products/product-4.jpg";
+import product1 from "@/assets/products/product-1.jpg";
+import product2 from "@/assets/products/product-2.jpg";
+import product3 from "@/assets/products/product-3.jpg";
+import product4 from "@/assets/products/product-4.jpg";
 const ProductGallery = () => {
   const images = [product1, product2, product3, product4];
   const [previewImg, setPreviewImg] = useState(images[0]);

@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AddCart from "../../components/cart/AddCart";
+import AddCart from "@/components/cart/AddCart";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { useGetPhotosQuery } from "../../store/features/product/productApi";
-import { discountCalculator } from "./../../utils/discountCalculator";
+import { useGetPhotosQuery } from "@/store/features/product/productApi";
+import { discountCalculator } from "@/utils/discountCalculator";
 import { useDispatch } from "react-redux";
-import { deleteItemFromCare } from "../../store/features/cart/CartSlice";
+import { deleteItemFromCare } from "@/store/features/cart/CartSlice";
 const CartItem = ({ product }) => {
   const { data: productImage } = useGetPhotosQuery(product?._id);
 
@@ -28,10 +28,10 @@ const CartItem = ({ product }) => {
           <p className="text-xl font-bold text">{product.name}</p>
           <div className="my-3">
             <p className="text-sm text-placeholder">
-              <span className="text-primary">Size: </span>Large
+              <span>Size: </span>Large
             </p>
             <p className="text-sm text-placeholder">
-              <span className="text-primary">Color: </span>White
+              <span>Color: </span>White
             </p>
           </div>
           <div>

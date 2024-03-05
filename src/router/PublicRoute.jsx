@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useAuth } from "../hooks/useAuth";
+import { useAuth } from "@/hooks/useAuth";
 import { Navigate } from "react-router-dom";
 
 const PublicRoute = ({ children }) => {

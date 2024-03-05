@@ -1,5 +1,5 @@
-import Button from "../../components/buttons/Button";
-import AddCart from "../../components/cart/AddCart";
+import Button from "@/components/buttons/Button";
+import AddCart from "@/components/cart/AddCart";
 
 const ProductDetailCart = () => {
   return (

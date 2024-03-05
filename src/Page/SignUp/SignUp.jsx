@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "@/assets/logo.png";
 import { useForm } from "react-hook-form";
-import { useSignUpMutation } from "../../store/features/auth/authApi";
+import { useSignUpMutation } from "@/store/features/auth/authApi";
 import useToast from "@/hooks/useTostMessage";
 import Spinner from "@/components/global/Spinner";
 
@@ -111,7 +111,7 @@ const SignUp = () => {
                 </div>
                 <a
                   href="#"
-                  className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  className="text-sm font-medium text-purple hover:underline dark:text-purple"
                 >
                   Forgot password?
                 </a>
@@ -131,7 +131,7 @@ const SignUp = () => {
                 Already have an account?{" "}
                 <Link
                   to="/signin"
-                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  className="font-medium text-purple hover:underline dark:text-purple"
                 >
                   Sign In
                 </Link>

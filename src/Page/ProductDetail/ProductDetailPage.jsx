@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
-import ProductDetail from "../../features/productDetail/ProductDetail";
-import ProductGallery from "../../features/productDetail/ProductGallery";
-import ReviewCard from "../../features/review/ReviewCard";
-import Subscribe from "../../features/subscribe/Subscribe";
-import { useGetProductQuery } from "../../store/features/product/productApi";
+import ProductDetail from "@/features/productDetail/ProductDetail";
+import ProductGallery from "@/features/productDetail/ProductGallery";
+import ReviewCard from "@/features/review/ReviewCard";
+import Subscribe from "@/features/subscribe/Subscribe";
+import { useGetProductQuery } from "@/store/features/product/productApi";
 import { useEffect } from "react";
-import LoadingPage from "../../components/global/LoadingPage";
+import LoadingPage from "@/components/global/LoadingPage";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
 
-  const { data, isError, isLoading, error } = useGetProductQuery(productId);
+  const { data, isLoading } = useGetProductQuery(productId);
   console.log("detail", data);
 
   useEffect(() => {

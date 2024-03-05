@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
-import { useAddProductsMutation } from "../store/features/product/productApi";
-import useToast from "../hooks/useTostMessage";
+import { useAddProductsMutation } from "@/store/features/product/productApi";
+import useToast from "@/hooks/useTostMessage";
 
 const AddProduct = () => {
   const { register, handleSubmit } = useForm();

@@ -1,10 +1,9 @@
 import "./App.css";
 import TopNav from "@/features/nav/TopNav";
-import MainNav from "@/features/nav/MainNav";
-
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
-import AppRouter from "./router/AppRouter";
+import AppRouter from "@/router/AppRouter";
+import MainNav from "@/features/nav/MainNav";
 
 function App() {
   return (

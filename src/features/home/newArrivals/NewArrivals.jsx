@@ -1,13 +1,14 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import Button from "../../../components/buttons/Button";
-import ProductCard from "../../../components/productCard/ProductCard";
+
+import ProductCard from "@/components/productCard/ProductCard";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import Button from "@/components/buttons/Button";
 
 const NewArrivals = ({ products }) => {
-  const productsReverse= [...products].reverse()
+  const productsReverse = [...products].reverse();
   const initialShow = 4;
   const [countProduct, setCountProduct] = useState(initialShow);
   let someProducts = productsReverse.slice(0, countProduct);

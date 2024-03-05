@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "../../components/buttons/Button";
+import Button from "@/components/buttons/Button";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const CartSummary = ({ product }) => {

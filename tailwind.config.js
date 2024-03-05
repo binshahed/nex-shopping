@@ -22,6 +22,7 @@ export default {
       gray1: "#F0F0F0",
       lightGray: "#F2F0F1",
       red: "#FF3333",
+      purple: "#9c34e8",
     },
   },
   plugins: [],

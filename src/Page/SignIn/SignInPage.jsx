@@ -1,10 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/logo.png";
+import logo from "@/assets/logo.png";
 import { useForm } from "react-hook-form";
 
-import useToast from "../../hooks/useTostMessage.js";
-import Spinner from "../../components/global/Spinner.jsx";
-// import { useSignInMutation } from "../../store/features/auth/authApi.js";
+import useToast from "@/hooks/useTostMessage.js";
+import Spinner from "@/components/global/Spinner.jsx";
 import { useSignInMutation } from "@/store/features/auth/authApi.js";
 
 const SignIn = () => {
@@ -100,7 +99,7 @@ const SignIn = () => {
                 </div>
                 <a
                   href="#"
-                  className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
+                  className="text-sm font-medium text-purple hover:underline dark:text-purple"
                 >
                   Forgot password?
                 </a>
@@ -116,11 +115,11 @@ const SignIn = () => {
                 </button>
               )}
             </form>
-            <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+            <p className="text-sm font-light  dark:text-gray1">
               Don’t have an account yet?{" "}
               <Link
                 to="/signup"
-                className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                className="font-medium text-purple hover:underline dark:text-purple"
               >
                 Sign up
               </Link>

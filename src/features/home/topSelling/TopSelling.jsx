@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import ProductCard from "../../../components/productCard/ProductCard";
-import Button from "../../../components/buttons/Button";
+import ProductCard from "@/components/productCard/ProductCard";
+import Button from "@/components/buttons/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
