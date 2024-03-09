@@ -6,12 +6,16 @@ import Footer from "@/features/footer/Footer";
 import CartPage from "@/Page/CartPage/CartPage";
 import SignIn from "@/Page/SignIn/SignInPage";
 import SignUp from "@/Page/SignUp/SignUp";
-import AddProduct from "@/Page/AddProduct";
+import AddProduct from "@/Page/admin/AddProduct/AddProduct";
 import useAuthCheck from "@/hooks/useAuthCheck";
 import Spinner from "@/components/global/Spinner";
 import AdminRoute from "./AdminRoute";
 import PublicRoute from "./PublicRoute";
+
 import Dashboard from "@/Page/Dashboard/Dashboard";
+
+import AddBrand from "@/Page/admin/AddBrand/AddBrand";
+
 
 const AppRouter = () => {
   const authCheck = useAuthCheck();
@@ -27,6 +31,14 @@ const AppRouter = () => {
             element={
               <AdminRoute>
                 <AddProduct />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <AddBrand />
               </AdminRoute>
             }
           />

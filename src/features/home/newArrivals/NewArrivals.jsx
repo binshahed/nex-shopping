@@ -5,7 +5,6 @@ import ProductCard from "@/components/productCard/ProductCard";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import Button from "@/components/buttons/Button";
 
 const NewArrivals = ({ products }) => {
   const productsReverse = [...products].reverse();
@@ -29,20 +28,23 @@ const NewArrivals = ({ products }) => {
       </div>
       <div className="text-center">
         {show ? (
-          <Button
-            border
-            handleButtonClick={() => setCountProduct(countProduct + 4)}
+          <button
+            className="basic-button bg-transparent text-black border my-10 "
+            onClick={() => setCountProduct(countProduct + 4)}
           >
             <span className="font-bold  ">
               View All <FontAwesomeIcon icon={faArrowDown} />
             </span>
-          </Button>
+          </button>
         ) : (
-          <Button border handleButtonClick={() => setCountProduct(initialShow)}>
-            <span className="font-bold">
+          <button
+            className="basic-button bg-transparent text-black border my-10 "
+            onClick={() => setCountProduct(initialShow)}
+          >
+            <span className="font-bold  ">
               Hide <FontAwesomeIcon icon={faArrowUp} />
             </span>
-          </Button>
+          </button>
         )}
       </div>
     </div>
