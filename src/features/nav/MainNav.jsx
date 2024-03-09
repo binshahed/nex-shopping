@@ -18,7 +18,7 @@ const MainNav = () => {
     { id: 1, name: "Shop", path: "/shop" },
     { id: 2, name: "On Sale", path: "/on-sale" },
     { id: 3, name: "New Arrivals", path: "/new-arrival" },
-    { id: 4, name: "Brands", path: "/brands" },
+    { id: 4, name: "Brands", path: "/admin" },
   ];
 
   const [isMenuOpen, setMenuOpen] = useState(false);

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { discountCalculator } from "@/utils/discountCalculator";
-import Button from "../buttons/Button";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import Tooltip from "../tooltip/Tooltip";
 import Rating from "./Rating";
@@ -66,9 +65,12 @@ const ProductCard = ({ product }) => {
           </div>
 
           <Tooltip message="Add to cart">
-            <Button bg="lightGray" handleButtonClick={handleCartAdd}>
+            <button
+              className="basic-button bg-lightGray text-primary"
+              onClick={handleCartAdd}
+            >
               <FontAwesomeIcon icon={faCartPlus} />
-            </Button>
+            </button>
           </Tooltip>
         </div>
       </div>

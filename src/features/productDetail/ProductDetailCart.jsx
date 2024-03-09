@@ -1,17 +1,16 @@
-import Button from "@/components/buttons/Button";
+/* eslint-disable react/prop-types */
 import AddCart from "@/components/cart/AddCart";
 
-const ProductDetailCart = () => {
+const ProductDetailCart = ({ product }) => {
+  console.log('psd',product);
   return (
     <div className="mt-5">
       <div className="grid grid-cols-12 gap-10">
         <div className="col-span-4 md:col-span-3  ">
-          <AddCart />
+          <AddCart product={product} />
         </div>
         <div className="col-span-8 ">
-          <Button bg="primary" text="white">
-            Add to Cart
-          </Button>
+          <button className="basic-button">Add to Cart</button>
         </div>
       </div>
     </div>
