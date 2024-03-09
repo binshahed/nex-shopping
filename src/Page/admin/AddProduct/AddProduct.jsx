@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useAddProductsMutation } from "@/store/features/product/productApi";
 import useToast from "@/hooks/useTostMessage";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useGetCategoriesQuery } from "@/store/features/category/categoryApi";
 
 const AddProduct = () => {
