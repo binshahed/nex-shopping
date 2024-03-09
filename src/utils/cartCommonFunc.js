@@ -13,7 +13,7 @@ export const setLocalStorage = (state) => {
 };
 
 export const cartTotalPrice = (state) => {
-  const totalPrice = state.items.reduce((prv, curr) => {
+  const totalPrice = state?.items?.reduce((prv, curr) => {
     return prv + curr.productPrice;
   }, 0);
   return totalPrice;

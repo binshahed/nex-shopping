@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faSearch,
-  faUser,
+  faUser
 } from "@fortawesome/free-solid-svg-icons";
 import brandLogo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
@@ -15,10 +15,12 @@ const MainNav = () => {
   const cart = useSelector((state) => state.cart);
 
   const navItems = [
-    { id: 1, name: "Shop", path: "/shop" },
+    { id: 1, name: "Shop", path: "/dashboard" },
     { id: 2, name: "On Sale", path: "/on-sale" },
     { id: 3, name: "New Arrivals", path: "/new-arrival" },
+
     { id: 4, name: "Brands", path: "/admin" },
+
   ];
 
   const [isMenuOpen, setMenuOpen] = useState(false);

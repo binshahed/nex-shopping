@@ -11,7 +11,11 @@ import useAuthCheck from "@/hooks/useAuthCheck";
 import Spinner from "@/components/global/Spinner";
 import AdminRoute from "./AdminRoute";
 import PublicRoute from "./PublicRoute";
+
+import Dashboard from "@/Page/Dashboard/Dashboard";
+
 import AddBrand from "@/Page/admin/AddBrand/AddBrand";
+
 
 const AppRouter = () => {
   const authCheck = useAuthCheck();
@@ -52,6 +56,14 @@ const AppRouter = () => {
             element={
               <PublicRoute>
                 <SignUp />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <PublicRoute>
+                <Dashboard />
               </PublicRoute>
             }
           />
