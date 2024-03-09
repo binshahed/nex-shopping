@@ -62,9 +62,9 @@ const AppRouter = () => {
           <Route
             path="/dashboard"
             element={
-              <PublicRoute>
+              <AdminRoute>
                 <Dashboard />
-              </PublicRoute>
+              </AdminRoute>
             }
           />
           <Route path="/product/:productId" element={<ProductDetailPage />} />

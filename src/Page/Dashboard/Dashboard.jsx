@@ -1,14 +1,20 @@
-import { Route, Routes,  useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { Route, Routes, Link, useLocation } from "react-router-dom";
+
+const Order = () => (
+  <div>
+    <p>Hello world</p>
+  </div>
+);
 
 const Dashboard = () => {
-  // const { pathname } = useLocation();
-  const { url } = useParams();
+  const { pathname } = useLocation();
+  const url = pathname.split("/")[1]; // Adjust index based on your route structure
+
   return (
-    <div>
+    <div className="text-center">
       <Link to={`/${url}/order`}>order</Link>
       <Routes>
-        <Route path={`/${url}/order`} element={<p>hello world</p>} />
+        <Route path={`/order`} element={<Order />} />
       </Routes>
     </div>
   );
