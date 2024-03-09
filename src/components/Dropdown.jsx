@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
 import { Link } from "react-router-dom";
-import Button from "./buttons/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "@/store/features/auth/authSlice";
+import useToast from "@/hooks/useTostMessage";
 
 const Dropdown = ({ children }) => {
   const dispatch = useDispatch();
@@ -11,14 +11,13 @@ const Dropdown = ({ children }) => {
     { name: "Item 1", to: "/" },
     { name: "Item 1", to: "/" },
   ];
-
+  const { showToast } = useToast();
   const store = useSelector((state) => state.auth);
 
   const handleLogout = () => {
     dispatch(userLoggedOut());
+    showToast("logout Success", "success");
   };
-
-  console.log("auth", store.user);
 
   return (
     <div className="relative inline-block text-left">
@@ -40,7 +39,11 @@ const Dropdown = ({ children }) => {
                 Login
               </Link>
             )}
-            {store.user && <p className="px-4 py-3 bg-purple text-white cursor-pointer">{store.user.name}</p>}
+            {store.user && (
+              <p className="px-4 py-3 bg-purple text-white cursor-pointer">
+                {store.user.name}
+              </p>
+            )}
             {dropdownItems.map((item, index) => (
               <Link
                 to={item.to}
@@ -53,7 +56,13 @@ const Dropdown = ({ children }) => {
               </Link>
             ))}
             {store.user && (
-              <Button handleButtonClick={handleLogout}>Logout</Button>
+              // <Button handleButtonClick={handleLogout}>Logout</Button>
+              <p
+                className="px-4 py-3 hover:bg-gray1 cursor-pointer"
+                onClick={handleLogout}
+              >
+                Logout
+              </p>
             )}
           </div>
         </div>

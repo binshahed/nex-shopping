@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Button from "@/components/buttons/Button";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const CartSummary = ({ product }) => {
@@ -33,9 +32,9 @@ const CartSummary = ({ product }) => {
           <p className="flex-2 font-bold text-lg">${grandTotalPrice}</p>
         </div>
       </div>
-      <Button bg="primary" text="white" styles="w-full">
-        Go to Checkout <FontAwesomeIcon icon={faArrowRight} />{" "}
-      </Button>
+      <button className="basic-button w-full">
+        Go to Checkout <FontAwesomeIcon icon={faArrowRight} />
+      </button>
     </div>
   );
 };

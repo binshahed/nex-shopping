@@ -1,6 +1,10 @@
 header {
-    position: sticky;
-    top: 0;
-    background-color: #ffffff; /* Add your desired background color */
-    z-index: 10;
-  }
+  position: sticky;
+  top: 0;
+  background-color: #ffffff; /* Add your desired background color */
+  z-index: 10;
+}
+
+.basic-button {
+  @apply bg-primary text-white p-2  px-8 rounded-3xl text-center  hover:bg-placeholder transition delay-150 hover:text-white;
+}

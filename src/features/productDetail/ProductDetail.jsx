@@ -2,7 +2,6 @@
 import { Link } from "react-router-dom";
 import Rating from "@/components/productCard/Rating";
 import { discountCalculator } from "@/utils/discountCalculator";
-import Button from "@/components/buttons/Button";
 import ProductDetailCart from "./ProductDetailCart";
 
 import { useEffect } from "react";
@@ -56,21 +55,21 @@ const ProductDetail = ({ product }) => {
       {/* Size  */}
       <div>
         <p className="text-lg text-placeholder ">Size</p>
-        <Button bg="gray1" styles="mr-2 mb-2 md:mb-0">
+        <button className="basic-button text-black bg-gray1 mr-2 mb-2 md:mb-0">
           Small
-        </Button>
-        <Button bg="gray1" styles="mr-2 mb-2 md:mb-0">
+        </button>
+        <button className="basic-button text-black bg-gray1 mr-2 mb-2 md:mb-0">
           Medium
-        </Button>
-        <Button bg="gray1" styles="mr-2 mb-2 md:mb-0">
-          Large
-        </Button>
-        <Button bg="gray1" styles="mr-2 mb-2 md:mb-0">
+        </button>
+        <button className="basic-button text-black bg-gray1 mr-2 mb-2 md:mb-0">
+          Large{" "}
+        </button>
+        <button className="basic-button text-black bg-gray1 mr-2 mb-2 md:mb-0">
           X-Large
-        </Button>
+        </button>
       </div>
       <hr className="h-px my-4 bg-gray1 border-0" />
-      <ProductDetailCart />
+      <ProductDetailCart product={product} />
     </div>
   );
 };

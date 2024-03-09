@@ -11,7 +11,6 @@ const ProductDetailPage = () => {
   const { productId } = useParams();
 
   const { data, isLoading } = useGetProductQuery(productId);
-  console.log("detail", data);
 
   useEffect(() => {
     window.scrollTo(0, 0);
