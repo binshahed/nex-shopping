@@ -1,15 +1,15 @@
-import { Route, Routes,  useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
-  // const { pathname } = useLocation();
-  const { url } = useParams();
   return (
     <div>
-      <Link to={`/${url}/order`}>order</Link>
-      <Routes>
-        <Route path={`/${url}/order`} element={<p>hello world</p>} />
-      </Routes>
+      <Link className="mr-6" to={`addProduct`}>
+        App Product
+      </Link>
+      <Link className="mr-6" to={`addBrand`}>
+        Add Brand
+      </Link>
+      <Outlet />
     </div>
   );
 };

@@ -1,9 +1,8 @@
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "@/Page/Home/HomePage";
-import ProductDetailPage from "@/Page/ProductDetail/ProductDetailPage";
 
 import Footer from "@/features/footer/Footer";
-import CartPage from "@/Page/CartPage/CartPage";
+
 import SignIn from "@/Page/SignIn/SignInPage";
 import SignUp from "@/Page/SignUp/SignUp";
 import AddProduct from "@/Page/admin/AddProduct/AddProduct";
@@ -15,6 +14,13 @@ import PublicRoute from "./PublicRoute";
 import Dashboard from "@/Page/Dashboard/Dashboard";
 
 import AddBrand from "@/Page/admin/AddBrand/AddBrand";
+import ErrorPage from "@/components/global/NotFound/ErrorPage";
+
+const HomePage = lazy(() => import("@/Page/Home/HomePage"));
+const ProductDetailPage = lazy(() =>
+  import("@/Page/ProductDetail/ProductDetailPage")
+);
+const CartPage = lazy(() => import("@/Page/CartPage/CartPage"));
 
 
 const AppRouter = () => {
@@ -25,23 +31,8 @@ const AppRouter = () => {
         <Spinner />
       ) : (
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/addProduct"
-            element={
-              <AdminRoute>
-                <AddProduct />
-              </AdminRoute>
-            }
-          />
-          <Route
-            path="/admin"
-            element={
-              <AdminRoute>
-                <AddBrand />
-              </AdminRoute>
-            }
-          />
+          <Route path="/" element={<HomePage />} errorElement={<ErrorPage />} />
+
           <Route path="/cart" element={<CartPage />} />
           <Route
             path="/signin"
@@ -62,11 +53,28 @@ const AppRouter = () => {
           <Route
             path="/dashboard"
             element={
-              <PublicRoute>
+              <AdminRoute>
                 <Dashboard />
-              </PublicRoute>
+              </AdminRoute>
             }
-          />
+          >
+            <Route
+              path="addProduct"
+              element={
+                <AdminRoute>
+                  <AddProduct />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="addBrand"
+              element={
+                <AdminRoute>
+                  <AddBrand />
+                </AdminRoute>
+              }
+            />
+          </Route>
           <Route path="/product/:productId" element={<ProductDetailPage />} />
           <Route path="/*" element={<div>page not found</div>} />
         </Routes>
