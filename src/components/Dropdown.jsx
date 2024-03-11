@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "@/store/features/auth/authSlice";
 import useToast from "@/hooks/useTostMessage";
+import { motion } from "framer-motion";
 
 const Dropdown = ({ children }) => {
   const dispatch = useDispatch();
@@ -20,7 +21,10 @@ const Dropdown = ({ children }) => {
   };
 
   return (
-    <div className="relative inline-block text-left">
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      className="relative inline-block text-left"
+    >
       <div className="group">
         {children}
         <div className="hidden bg-white  group-hover:block absolute z-10 mt-0 w-56 rounded-md shadow-lg ">
@@ -67,7 +71,7 @@ const Dropdown = ({ children }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

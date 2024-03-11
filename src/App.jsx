@@ -1,22 +1,21 @@
 import "./App.css";
-import TopNav from "@/features/nav/TopNav";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
-import AppRouter from "@/router/AppRouter";
-import MainNav from "@/features/nav/MainNav";
+
+import { Suspense, lazy } from "react";
+import Loading from "./components/global/Loading";
+import AppProvider from "./components/AppProvider";
+
+const Nav = lazy(() => import("@/features/shared/Nav/Nav"));
+const AppRouter = lazy(() => import("@/router/AppRouter"));
 
 function App() {
   return (
-    <div>
-      <ToastContainer position="top-right" autoClose={5000} />
-      <header className="sticky top-0 z-50">
-        <div>
-          <TopNav />
-          <MainNav />
-        </div>
-      </header>
-      <AppRouter />
-    </div>
+    <AppProvider>
+      <Suspense fallback={<Loading />}>
+        <Nav />
+        <AppRouter />
+      </Suspense>
+    </AppProvider>
   );
 }
 

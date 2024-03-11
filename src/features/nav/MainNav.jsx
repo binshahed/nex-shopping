@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faSearch,
-  faUser
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import brandLogo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
@@ -10,6 +10,7 @@ import { useState } from "react";
 import Dropdown from "@/components/Dropdown";
 import CartDrawer from "../cart/Drawer/CartDrawer";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 const MainNav = () => {
   const cart = useSelector((state) => state.cart);
@@ -20,7 +21,6 @@ const MainNav = () => {
     { id: 3, name: "New Arrivals", path: "/new-arrival" },
 
     { id: 4, name: "Brands", path: "/admin" },
-
   ];
 
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -61,7 +61,8 @@ const MainNav = () => {
               </svg>
             </button>
             <Link to="/">
-              <img
+              <motion.img
+               whileHover={{ scale: 1.1 }}
                 src={brandLogo}
                 alt="Brand Logo"
                 className="mb-4 md:mb-0 md:mr-4 p-2"
@@ -92,7 +93,10 @@ const MainNav = () => {
                 <Link to={item.path}>{item.name}</Link>
               </li>
             ))}
-            <li className="list-none md:inline-block mx-2">
+            <motion.li
+              whileHover={{ scale: 1.1 }}
+              className="list-none md:inline-block mx-2"
+            >
               <form className="hidden md:block mb-4 md:mb-0">
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-placeholder">
@@ -106,11 +110,12 @@ const MainNav = () => {
                   />
                 </div>
               </form>
-            </li>
+            </motion.li>
           </ul>
           <div className="flex items-center">
             <div className="flex items-center ml-4 hidden md:block mb-4 md:mb-0">
-              <button
+              <motion.button
+                whileHover={{ scale: 1.1 }}
                 type="button"
                 className="relative inline-flex items-center p-3 text-sm font-medium text-center focus:outline-none"
               >
@@ -124,7 +129,7 @@ const MainNav = () => {
                     {cart.items.length}
                   </div>
                 )}
-              </button>
+              </motion.button>
 
               <Dropdown>
                 <FontAwesomeIcon

@@ -9,6 +9,7 @@ import { useGetPhotosQuery } from "@/store/features/product/productApi";
 import useToast from "@/hooks/useTostMessage";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/store/features/cart/CartSlice";
+import { motion } from "framer-motion";
 
 const ProductCard = ({ product }) => {
   const discountPrice = discountCalculator(
@@ -34,12 +35,11 @@ const ProductCard = ({ product }) => {
     dispatch(addToCart(product));
   };
 
-  // const handleCartRemove = () => {
-  //   dispatch(removeFromCart(product));
-  // };
-
   return (
-    <div className="w-full max-w-sm bg-white  rounded-lg  dark:bg-gray-800 dark:border-gray-700 border border-gray1">
+    <motion.div
+      whileHover={{ scale: 1.1 }}
+      className="w-full max-w-sm bg-white  rounded-lg  dark:bg-gray-800 dark:border-gray-700 border border-gray1"
+    >
       <img
         className="p-4 rounded-t-lg h-full "
         src={productImage}
@@ -74,7 +74,7 @@ const ProductCard = ({ product }) => {
           </Tooltip>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
