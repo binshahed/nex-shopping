@@ -24,11 +24,12 @@ const ProductCard = ({ product }) => {
   const {
     data: productImage,
     // isLoading,
+    error,
     isError,
   } = useGetPhotosQuery(product?._id);
 
   if (isError) {
-    showToast("Image not found", "error");
+    showToast("Image not found", error);
   }
 
   const handleCartAdd = () => {

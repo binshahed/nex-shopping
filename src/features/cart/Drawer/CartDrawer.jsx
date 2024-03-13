@@ -4,6 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import CartDrawerItem from "./CartDrawerItem";
+import { Link } from "react-router-dom";
 
 export default function CartDrawer({ open, setOpen, cart }) {
   return (
@@ -80,18 +81,19 @@ export default function CartDrawer({ open, setOpen, cart }) {
                         Shipping and taxes calculated at checkout.
                       </p>
                       <div className="mt-6">
-                        <a
-                          href="#"
+                        <Link
+                        to='/cart'
                           className="flex items-center justify-center rounded-md border border-transparent bg-primary px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary"
+                          onClick={() => setOpen(false)}
+                        
                         >
                           Checkout
-                        </a>
+                        </Link>
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                         <p>
                           or{" "}
                           <button
-                            type="button"
                             className="font-medium text-purple hover:text-indigo-500"
                             onClick={() => setOpen(false)}
                           >
