@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-import CartItem from "../cart/CartItem";
 import OrderItems from "./OrderItems";
 
 const OrderProductList = ({ product }) => {
