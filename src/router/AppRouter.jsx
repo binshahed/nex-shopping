@@ -17,6 +17,8 @@ import AddBrand from "@/Page/Dashboard/AddBrand/AddBrand";
 import ErrorPage from "@/components/global/NotFound/ErrorPage";
 import DashboardHome from "@/Page/Dashboard/DashboardHome";
 import AddCategory from "@/Page/Dashboard/AddCategory/AddCategory";
+import PrivateRoute from "./PrivateRoute";
+import OrderPage from "@/Page/OrderPage/OrderPage";
 
 const HomePage = lazy(() => import("@/Page/Home/HomePage"));
 const ProductDetailPage = lazy(() =>
@@ -35,6 +37,14 @@ const AppRouter = () => {
           <Route path="/" element={<HomePage />} errorElement={<ErrorPage />} />
 
           <Route path="/cart" element={<CartPage />} />
+          <Route
+            path="/order"
+            element={
+              <PrivateRoute>
+                <OrderPage />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="/signin"
             element={

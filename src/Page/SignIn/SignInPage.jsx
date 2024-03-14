@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import { useForm } from "react-hook-form";
 
@@ -8,6 +8,10 @@ import { useSignInMutation } from "@/store/features/auth/authApi.js";
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location?.state?.from?.pathname || "/";
+
   const { register, handleSubmit } = useForm();
 
   const { showToast } = useToast();
@@ -21,8 +25,8 @@ const SignIn = () => {
   if (isError) {
     showToast(error.data, "error");
   } else if (data) {
+    navigate(from, { replace: true });
     showToast(data.message, "success");
-    navigate(-1);
   }
 
   return (
