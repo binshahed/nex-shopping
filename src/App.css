@@ -11,4 +11,8 @@ header {
 
 .navbar ul a.active {
   color: rgb(34 197 94);
- }
+}
+
+input {
+  --tw-ring-shadow: 0 0 #000 !important;
+}
