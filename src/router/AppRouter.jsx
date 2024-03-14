@@ -5,7 +5,7 @@ import Footer from "@/features/footer/Footer";
 
 import SignIn from "@/Page/SignIn/SignInPage";
 import SignUp from "@/Page/SignUp/SignUp";
-import AddProduct from "@/Page/admin/AddProduct/AddProduct";
+import AddProduct from "@/Page/Dashboard/AddProduct/AddProduct";
 import useAuthCheck from "@/hooks/useAuthCheck";
 import Spinner from "@/components/global/Spinner";
 import AdminRoute from "./AdminRoute";
@@ -13,15 +13,16 @@ import PublicRoute from "./PublicRoute";
 
 import Dashboard from "@/Page/Dashboard/Dashboard";
 
-import AddBrand from "@/Page/admin/AddBrand/AddBrand";
+import AddBrand from "@/Page/Dashboard/AddBrand/AddBrand";
 import ErrorPage from "@/components/global/NotFound/ErrorPage";
+import DashboardHome from "@/Page/Dashboard/DashboardHome";
+import AddCategory from "@/Page/Dashboard/AddCategory/AddCategory";
 
 const HomePage = lazy(() => import("@/Page/Home/HomePage"));
 const ProductDetailPage = lazy(() =>
   import("@/Page/ProductDetail/ProductDetailPage")
 );
 const CartPage = lazy(() => import("@/Page/CartPage/CartPage"));
-
 
 const AppRouter = () => {
   const authCheck = useAuthCheck();
@@ -58,22 +59,10 @@ const AppRouter = () => {
               </AdminRoute>
             }
           >
-            <Route
-              path="addProduct"
-              element={
-                <AdminRoute>
-                  <AddProduct />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="addBrand"
-              element={
-                <AdminRoute>
-                  <AddBrand />
-                </AdminRoute>
-              }
-            />
+            <Route path="" element={<DashboardHome />} />
+            <Route path="addProduct" element={<AddProduct />} />
+            <Route path="addBrand" element={<AddBrand />} />
+            <Route path="addCategory" element={<AddCategory />} />
           </Route>
           <Route path="/product/:productId" element={<ProductDetailPage />} />
           <Route path="/*" element={<div>page not found</div>} />

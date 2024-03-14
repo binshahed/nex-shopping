@@ -8,3 +8,7 @@ header {
 .basic-button {
   @apply bg-primary text-white p-2  px-8 rounded-3xl text-center  hover:bg-placeholder transition delay-150 hover:text-white;
 }
+
+.navbar ul a.active {
+  color: rgb(34 197 94);
+ }

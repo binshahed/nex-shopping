@@ -4,10 +4,11 @@ import { getProducts } from "./productSlice";
 export const productApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getProducts: builder.query({
-      query: () => ({ 
+      query: () => ({
         url: "/product",
         method: "GET",
       }),
+      providesTags: ["products"],
       async onQueryStarted(arg, { queryFulfilled, dispatch }) {
         try {
           const result = await queryFulfilled;
@@ -23,6 +24,7 @@ export const productApi = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["products"],
       async onQueryStarted(arg, { queryFulfilled }) {
         try {
           const result = await queryFulfilled;

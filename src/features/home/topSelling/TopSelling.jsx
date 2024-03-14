@@ -22,27 +22,29 @@ const TopSelling = ({ products }) => {
           </div>
         ))}
       </div>
-      <div className="text-center">
-        {show ? (
-          <button
-            className="basic-button bg-transparent text-black border my-10 "
-            onClick={() => setCountProduct(countProduct + 4)}
-          >
-            <span className="font-bold  ">
-              View All <FontAwesomeIcon icon={faArrowDown} />
-            </span>
-          </button>
-        ) : (
-          <button
-            className="basic-button bg-transparent text-black border my-10 "
-            onClick={() => setCountProduct(initialShow)}
-          >
-            <span className="font-bold  ">
-              Hide <FontAwesomeIcon icon={faArrowUp} />
-            </span>
-          </button>
-        )}
-      </div>
+      {someProducts.length > initialShow && (
+        <div className="text-center">
+          {show ? (
+            <button
+              className="basic-button bg-transparent text-black border my-10 "
+              onClick={() => setCountProduct(countProduct + 4)}
+            >
+              <span className="font-bold  ">
+                View All <FontAwesomeIcon icon={faArrowDown} />
+              </span>
+            </button>
+          ) : (
+            <button
+              className="basic-button bg-transparent text-black border my-10 "
+              onClick={() => setCountProduct(initialShow)}
+            >
+              <span className="font-bold  ">
+                Hide <FontAwesomeIcon icon={faArrowUp} />
+              </span>
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
