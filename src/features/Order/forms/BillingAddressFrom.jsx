@@ -1,23 +1,52 @@
-import { useGetProfileQuery } from "@/store/features/profile/profileApi";
+/* eslint-disable react/prop-types */
+import {
+  useCreateProfileMutation,
+  useGetProfileQuery,
+} from "@/store/features/profile/profileApi";
 import Spinner from "@/components/global/Spinner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
-const BillingAddress = () => {
+const BillingAddress = ({ setNext }) => {
+  const userData = useSelector((state) => state.auth);
   const { data, isLoading } = useGetProfileQuery();
+  const [update, setUpdate] = useState(false);
+  const [
+    createProfile,
+    { isLoading: isLoadingCreateProfile, data: createProfileData },
+  ] = useCreateProfileMutation();
+  const { register, handleSubmit } = useForm();
 
-  console.log(data);
+  const { name, email } = userData.user;
+  const onSubmit = async (data) => {
+    if (update) {
+      createProfile(data);
+    } else {
+      setNext(true);
+    }
+  };
+
+  if (createProfileData) {
+    setNext(true);
+  }
+
   return (
     <>
-      {isLoading ? (
+      {isLoading && !name && !email ? (
         <Spinner />
       ) : (
-        <form className="w-full my-8">
+        <form className="w-full my-8" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-wrap -mx-3 mb-8">
             <div className="w-full px-3">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                First Name
+                Name
               </label>
               <input
-                defaultValue={data?.user.name}
+                disabled
+                defaultValue={name}
                 name="name"
                 required
                 className="input-field"
@@ -32,7 +61,8 @@ const BillingAddress = () => {
                 Email
               </label>
               <input
-                defaultValue={data?.user.email}
+                disabled
+                defaultValue={email}
                 name="email"
                 required
                 className="input-field"
@@ -45,8 +75,9 @@ const BillingAddress = () => {
                 Mobile No
               </label>
               <input
+                {...register("phone")}
+                onChange={() => setUpdate(true)}
                 defaultValue={data?.phone}
-                name="mobile_no"
                 required
                 className="input-field"
                 type="text"
@@ -60,8 +91,9 @@ const BillingAddress = () => {
                 Address
               </label>
               <input
+                {...register("address1")}
+                onChange={() => setUpdate(true)}
                 defaultValue={data?.address1}
-                name="address"
                 required
                 className="input-field"
                 type="text"
@@ -75,6 +107,8 @@ const BillingAddress = () => {
                 City
               </label>
               <input
+                onChange={() => setUpdate(true)}
+                {...register("city")}
                 defaultValue={data?.city}
                 name="city"
                 className="input-field"
@@ -88,8 +122,10 @@ const BillingAddress = () => {
                 Post Code
               </label>
               <input
+                onChange={() => setUpdate(true)}
+                {...register("postCode")}
                 defaultValue={data?.postCode}
-                name="post"
+                name="postCode"
                 required
                 className="input-field"
                 type="text"
@@ -101,8 +137,10 @@ const BillingAddress = () => {
                 Country
               </label>
               <input
+                onChange={() => setUpdate(true)}
+                {...register("country")}
                 name="country"
-                defaultValue={data?.country || "Bangladesh"}
+                defaultValue={data?.country}
                 required
                 className="input-field"
                 type="text"
@@ -113,10 +151,12 @@ const BillingAddress = () => {
           <div className="md:flex md:items-end mt-8">
             <div className="md:w-full text-end">
               <button
+                disabled={isLoadingCreateProfile}
                 className="shadow bg-purple hover:bg-purple focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                 type="submit"
+                // onClick={() => setNext(true)}
               >
-                Save Detail
+                Save Detail And Next <FontAwesomeIcon icon={faArrowRight} />
               </button>
             </div>
           </div>

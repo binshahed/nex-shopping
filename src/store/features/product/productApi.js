@@ -53,6 +53,22 @@ export const productApi = apiSlice.injectEndpoints({
         }
       },
     }),
+    getFiltersProducts: builder.mutation({
+      query: (data) => ({
+        url: "/product/filter",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["products"],
+      async onQueryStarted(arg, { queryFulfilled }) {
+        try {
+          const result = await queryFulfilled;
+          return result;
+        } catch (err) {
+          console.log(err);
+        }
+      },
+    }),
   }),
 });
 
@@ -61,4 +77,5 @@ export const {
   useGetPhotosQuery,
   useGetProductQuery,
   useAddProductsMutation,
+  useGetFiltersProductsMutation,
 } = productApi;
