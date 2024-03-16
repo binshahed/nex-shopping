@@ -17,7 +17,7 @@ const MainNav = () => {
 
   const navItems = [
     { id: 1, name: "Shop", path: "/dashboard" },
-    { id: 2, name: "On Sale", path: "/on-sale" },
+    { id: 2, name: "Filter", path: "/filter" },
     { id: 3, name: "New Arrivals", path: "/new-arrival" },
 
     { id: 4, name: "Brands", path: "/admin" },
@@ -62,7 +62,7 @@ const MainNav = () => {
             </button>
             <Link to="/">
               <motion.img
-               whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.1 }}
                 src={brandLogo}
                 alt="Brand Logo"
                 className="mb-4 md:mb-0 md:mr-4 p-2"

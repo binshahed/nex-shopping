@@ -16,3 +16,15 @@ header {
 input {
   --tw-ring-shadow: 0 0 #000 !important;
 }
+
+input:disabled {
+  @apply bg-gray1 cursor-not-allowed;
+}
+
+.input-field {
+  @apply appearance-none block w-full text-pretty border border-placeholder rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white;
+}
+
+button:disabled {
+  @apply bg-gray1 cursor-not-allowed;
+}

@@ -1,6 +1,9 @@
+/* eslint-disable react/prop-types */
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-const PlaceOrder = () => {
+const PlaceOrder = ({ setNext }) => {
   const [selectedOption, setSelectedOption] = useState("CashOnDelivery");
 
   // Function to handle radio button selection
@@ -10,6 +13,17 @@ const PlaceOrder = () => {
 
   return (
     <div>
+      <div className="md:flex md:items-start py-5  ">
+        <div className="md:w-full text-start">
+          <button
+            className="   focus:outline-none text-purple font-bold "
+            type="submit"
+            onClick={() => setNext(false)}
+          >
+            <FontAwesomeIcon icon={faArrowLeft} /> Back To Edit
+          </button>
+        </div>
+      </div>
       <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
         Select Payment
       </h3>
@@ -70,6 +84,17 @@ const PlaceOrder = () => {
           </div>
         </li>
       </ul>
+      <div className="md:flex md:items-end mt-8">
+        <div className="md:w-full text-end">
+          <button
+            className="shadow bg-purple hover:bg-purple focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            type="submit"
+            onClick={() => setNext(true)}
+          >
+            Save Detail And Next
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
