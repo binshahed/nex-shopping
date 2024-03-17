@@ -16,7 +16,7 @@ const MainNav = () => {
     { id: 1, name: "Shop", path: "/dashboard" },
     { id: 2, name: "Filter", path: "/filter" },
     { id: 3, name: "New Arrivals", path: "/new-arrival" },
-    { id: 4, name: "Brands", path: "/admin" },
+    { id: 4, name: "Brands", path: "/admin" }
   ];
 
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -35,7 +35,7 @@ const MainNav = () => {
             <button
               onClick={toggleMenu}
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-100 rounded-lg md:hidden bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:text-gray-400 dark:hover:bg-gray-100 dark:focus:ring-gray-100"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-100 rounded-lg md:hidden bg-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-100"
               aria-controls="navbar-default"
               aria-expanded={isMenuOpen ? "true" : "false"}
             >
@@ -76,7 +76,7 @@ const MainNav = () => {
                   className="text-xl cursor-pointer"
                 />
                 {cart.items.length > 0 && (
-                  <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 border-2 border-white rounded-full -top-1 -end-1 dark:border-gray-100">
+                  <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 border-2 border-white rounded-full -top-1 -end-1">
                     {cart.items.length}
                   </div>
                 )}
@@ -122,7 +122,7 @@ const MainNav = () => {
                   className="text-xl cursor-pointer"
                 />
                 {cart.items.length > 0 && (
-                  <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 border-2 border-white rounded-full -top-1 -end-1 dark:border-gray-100">
+                  <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 border-2 border-white rounded-full -top-1 -end-1 ">
                     {cart.items.length}
                   </div>
                 )}

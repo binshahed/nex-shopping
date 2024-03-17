@@ -24,17 +24,17 @@ const SignUp = () => {
   console.log("error d", error);
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-900 py-32">
+    <section className="bg-gray-50 py-32 ">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">
         <Link
           to="/"
-          className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+          className="flex items-center mb-6 text-2xl font-semibold text-gray-900"
         >
           <img className="mr-2" src={logo} alt="logo" />
         </Link>
-        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+        <div className="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 ">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
               Sign Up to your account
             </h1>
             <form
@@ -42,42 +42,33 @@ const SignUp = () => {
               onSubmit={handleSubmit(onSubmit)}
             >
               <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                <label htmlFor="email" className="custom-label">
                   Name
                 </label>
                 <input
                   type="text"
                   name="name"
                   {...register("name")}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:gray-500-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="custom-input"
                   placeholder="enter name"
                   required
                 />
               </div>
               <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  email
+                <label htmlFor="email" className="custom-label">
+                  Email
                 </label>
                 <input
                   type="email"
                   name="email"
                   {...register("email")}
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:gray-500-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="custom-input"
                   placeholder="name@company.com"
                   required
                 />
               </div>
               <div>
-                <label
-                  htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
+                <label htmlFor="password" className="custom-label">
                   Password
                 </label>
                 <input
@@ -85,7 +76,7 @@ const SignUp = () => {
                   name="password"
                   {...register("password")}
                   placeholder="••••••••"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:gray-500-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className="custom-input"
                   required
                 />
               </div>
@@ -96,42 +87,34 @@ const SignUp = () => {
                       id="remember"
                       aria-describedby="remember"
                       type="checkbox"
-                      className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                      className="custom-input"
                       required=""
                     />
                   </div>
                   <div className="ml-3 text-sm">
-                    <label
-                      htmlFor="remember"
-                      className="text-gray-500 dark:text-gray-300"
-                    >
+                    <label htmlFor="remember" className="custom-label">
                       Remember me
                     </label>
                   </div>
                 </div>
-                <a
-                  href="#"
-                  className="text-sm font-medium text-purple-500 hover:underline dark:text-purple-500"
-                >
-                  Forgot password?
-                </a>
+                <a className="custom-label">Forgot password?</a>
               </div>
               {isLoading ? (
                 <Spinner />
               ) : (
                 <button
                   type="submit"
-                  className="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  className="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                 >
                   Sign Up
                 </button>
               )}
 
-              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+              <p className="text-sm font-light text-gray-500 ">
                 Already have an account?{" "}
                 <Link
                   to="/signin"
-                  className="font-medium text-purple-500 hover:underline dark:text-purple-500"
+                  className="font-medium text-purple-500 hover:underline "
                 >
                   Sign In
                 </Link>
