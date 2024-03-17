@@ -5,7 +5,7 @@ import { useState } from "react";
 const OrderPaymentForm = () => {
   const [next, setNext] = useState(false);
   return (
-    <div className="p-4 md:p-10 border border-gray1 rounded-md">
+    <div className="p-4 md:p-10 border border-gray-100 rounded-md">
       <p className="text-lg font-bold">Billing Details</p>
       {!next ? (
         <BillingAddress setNext={setNext} />

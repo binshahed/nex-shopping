@@ -29,20 +29,20 @@ const FilterSidebar = ({ data, states }) => {
   };
 
   return (
-    <div className="border border-placeholder rounded-lg p-4 col-span-12 md:col-span-3">
+    <div className="border border-gray-500 rounded-lg p-4 col-span-12 md:col-span-3">
       <div className="flex justify-between">
         <span className="font-bold">Filter</span>
         <FontAwesomeIcon icon={faSliders} />
       </div>
-      <hr className="my-5 border-gray1" />
+      <hr className="my-5 border-gray-100" />
 
       {data && (
-        <Accordion className="border-gray1 my-2">
+        <Accordion className="border-gray-100 my-2">
           <Accordion.Panel>
             <Accordion.Title className="focus:ring-0">
               Categories
             </Accordion.Title>
-            <Accordion.Content className="border-gray1 h-80 overflow-y-scroll">
+            <Accordion.Content className="border-gray-100 h-80 overflow-y-scroll">
               {data?.categories?.map((category) => {
                 return (
                   <div key={category._id} className="flex items-center gap-2">
@@ -62,10 +62,10 @@ const FilterSidebar = ({ data, states }) => {
         </Accordion>
       )}
 
-      <Accordion className="border-gray1 my-2">
-        <Accordion.Panel className="border-gray1">
+      <Accordion className="border-gray-100 my-2">
+        <Accordion.Panel className="border-gray-100">
           <Accordion.Title className="focus:ring-0">Brands</Accordion.Title>
-          <Accordion.Content className="border-gray1 border-y-0 h-80 overflow-y-scroll">
+          <Accordion.Content className="border-gray-100 border-y-0 h-80 overflow-y-scroll">
             {data?.brands?.map((brand) => {
               return (
                 <div key={brand._id} className="flex items-center gap-2">

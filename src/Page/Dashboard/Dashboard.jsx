@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <div className="mb-10">
       <div className="grid grid-cols-4">
-        <div className="col-span-1 bg-gray1 h-screen">
+        <div className="col-span-1 bg-gray-100 h-screen">
           <NavLink
             exact
             to=""

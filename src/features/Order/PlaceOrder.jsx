@@ -16,7 +16,7 @@ const PlaceOrder = ({ setNext }) => {
       <div className="md:flex md:items-start py-5  ">
         <div className="md:w-full text-start">
           <button
-            className="   focus:outline-none text-purple font-bold "
+            className="   focus:outline-none text-purple-500 font-bold "
             type="submit"
             onClick={() => setNext(false)}
           >
@@ -87,7 +87,7 @@ const PlaceOrder = ({ setNext }) => {
       <div className="md:flex md:items-end mt-8">
         <div className="md:w-full text-end">
           <button
-            className="shadow bg-purple hover:bg-purple focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="shadow bg-purple-500 hover:bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
             type="submit"
             onClick={() => setNext(true)}
           >

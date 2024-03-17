@@ -39,7 +39,7 @@ const MainNav = () => {
             <button
               onClick={toggleMenu}
               type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray1 rounded-lg md:hidden hover:bg-gray1 focus:outline-none focus:ring-2 focus:ring-gray1 dark:text-gray-400 dark:hover:bg-gray1 dark:focus:ring-gray1"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-100 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-100 dark:text-gray-400 dark:hover:bg-gray-100 dark:focus:ring-gray-100"
               aria-controls="navbar-default"
               aria-expanded={isMenuOpen ? "true" : "false"}
             >
@@ -99,12 +99,12 @@ const MainNav = () => {
             >
               <form className="hidden md:block mb-4 md:mb-0">
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-placeholder">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
                     <FontAwesomeIcon icon={faSearch} />
                   </div>
                   <input
                     type="search"
-                    className="outline-none block w-full p-2 pl-10 text-sm placeholder-text-placeholder bg-gray1 rounded-2xl focus:border-0"
+                    className="outline-none block w-full p-2 pl-10 text-sm gray-500-text-gray-500 bg-gray-100 rounded-2xl focus:border-0"
                     placeholder="Search for products..."
                     required
                   />
@@ -125,7 +125,7 @@ const MainNav = () => {
                   className="text-xl cursor-pointer"
                 />
                 {cart.items.length > 0 && (
-                  <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red border-2 border-white rounded-full -top-1 -end-1 dark:border-gray1">
+                  <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-600 border-2 border-white rounded-full -top-1 -end-1 dark:border-gray-100">
                     {cart.items.length}
                   </div>
                 )}

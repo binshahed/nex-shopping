@@ -23,10 +23,10 @@ const ProductDetail = ({ product }) => {
         <p>
           {" "}
           <span className="text-3xl font-bold  mr-2">${discountPrice}</span>
-          <span className="font-bold text-xl text-placeholder line-through">
+          <span className="font-bold text-xl text-gray-500 line-through">
             ${price}
           </span>
-          <span className=" text-lg ml-5 bg-red bg-opacity-10 px-5 py-1 rounded-xl text-red ">
+          <span className=" text-lg ml-5 bg-red-600 bg-opacity-10 px-5 py-1 rounded-xl text-red-600 ">
             -{discountPercentage}%
           </span>
         </p>
@@ -35,13 +35,13 @@ const ProductDetail = ({ product }) => {
           soft and breathable fabric, it offers superior comfort and style.
         </p>
       </div>
-      <hr className="h-px my-4 bg-gray1 border-0" />
+      <hr className="h-px my-4 bg-gray-100 border-0" />
       {/* color  */}
       <div>
-        <p className="text-lg text-placeholder ">Select Colors</p>
+        <p className="text-lg text-gray-500 ">Select Colors</p>
         <ul className="flex">
           <Link className="mr-2" to="/">
-            <li className="p-4 bg-red rounded-full  border-primary border-2"></li>
+            <li className="p-4 bg-red-600 rounded-full  border-primary border-2"></li>
           </Link>
           <Link to="/" className="mr-2">
             <li className="p-4 bg-primary rounded-full  border-primary border-2"></li>
@@ -51,24 +51,24 @@ const ProductDetail = ({ product }) => {
           </Link>
         </ul>
       </div>
-      <hr className="h-px my-4 bg-gray1 border-0" />
+      <hr className="h-px my-4 bg-gray-100 border-0" />
       {/* Size  */}
       <div>
-        <p className="text-lg text-placeholder ">Size</p>
-        <button className="basic-button text-black bg-gray1 mr-2 mb-2 md:mb-0">
+        <p className="text-lg text-gray-500 ">Size</p>
+        <button className="basic-button text-black bg-gray-100 mr-2 mb-2 md:mb-0">
           Small
         </button>
-        <button className="basic-button text-black bg-gray1 mr-2 mb-2 md:mb-0">
+        <button className="basic-button text-black bg-gray-100 mr-2 mb-2 md:mb-0">
           Medium
         </button>
-        <button className="basic-button text-black bg-gray1 mr-2 mb-2 md:mb-0">
+        <button className="basic-button text-black bg-gray-100 mr-2 mb-2 md:mb-0">
           Large{" "}
         </button>
-        <button className="basic-button text-black bg-gray1 mr-2 mb-2 md:mb-0">
+        <button className="basic-button text-black bg-gray-100 mr-2 mb-2 md:mb-0">
           X-Large
         </button>
       </div>
-      <hr className="h-px my-4 bg-gray1 border-0" />
+      <hr className="h-px my-4 bg-gray-100 border-0" />
       <ProductDetailCart product={product} />
     </div>
   );

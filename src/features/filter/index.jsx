@@ -45,7 +45,7 @@ const Filter = () => {
       {isLoading ? (
         <LoadingPage />
       ) : (
-        <div className="border border-placeholder rounded-lg p-4 col-span-12 md:col-span-9">
+        <div className="border border-gray-500 rounded-lg p-4 col-span-12 md:col-span-9">
           <h1 className="mb-9">Products</h1>
           {products?.length === 0 ? (
             <div className="text-center text-lg font-bold">

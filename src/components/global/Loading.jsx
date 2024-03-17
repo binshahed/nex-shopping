@@ -70,7 +70,7 @@ const Loading = () => {
             }}
           />
           <div
-            className="bg-gray1"
+            className="bg-gray-100"
             style={{
               width: cubeSize,
               height: cubeSize,

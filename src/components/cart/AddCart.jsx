@@ -13,7 +13,7 @@ const AddCart = ({ product }) => {
     dispatch(removeFromCart(product));
   };
   return (
-    <div className="flex justify-between rounded-full bg-gray1 p-2 px-4 ">
+    <div className="flex justify-between rounded-full bg-gray-100 p-2 px-4 ">
       <button
         className="cursor-pointer text-lg md:text-xl"
         onClick={handleRemoveFromCart}
@@ -24,7 +24,7 @@ const AddCart = ({ product }) => {
         disabled
         type="text"
         value={product?.quantity}
-        className="w-10 rounded-lg text-center bg-gray1 outline-none"
+        className="w-10 rounded-lg text-center bg-gray-100 outline-none"
       />
       <button
         className="cursor-pointer text-lg md:text-xl"

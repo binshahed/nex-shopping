@@ -17,12 +17,12 @@ const Subscribe = () => {
           <div className="col-span-12 md:col-span-6 lg:col-span-6">
             <form className=" w-full md:w-4/6 lg:w-4/6 mt-10 md:mt-0 lg:mt-0 mb-2">
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-placeholder">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-500">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </div>
                 <input
                   type="search"
-                  className="outline-none block w-full p-2 pl-10 text-sm placeholder-text-placeholder text-primary bg-gray1  rounded-full bg-gray-50 focus:border-0 py-4"
+                  className="outline-none block w-full p-2 pl-10 text-sm gray-500-text-gray-500 text-primary bg-gray-100  rounded-full bg-gray-50 focus:border-0 py-4"
                   placeholder="Enter your email address"
                   required
                 />

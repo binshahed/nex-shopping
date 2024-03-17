@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import colors from "tailwindcss/colors";
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -15,15 +16,19 @@ export default {
     extend: {},
     colors: {
       transparent: "transparent",
-      white: "#ffffff",
-      yellow: "#FFC633",
-      primary: "#000",
-      placeholder: "#909090",
-      gray1: "#F0F0F0",
-      lightGray: "#F2F0F1",
-      red: "#FF3333",
-      purple: "#9c34e8",
-      black: "#000000",
+      primary: colors.black,
+      ...colors,
+      // white: colors.white,
+      // gray: colors.gray,
+      // red: colors.red,
+      // yellow: colors.yellow,
+      // slate: colors.slate,
+      // purple: colors.purple,
+      // blue: colors.blue,
+      // green: colors.green,
+      // teal: colors.teal,
+      // orange: colors.orange,
+      // black: colors.black,
     },
   },
   plugins: [],

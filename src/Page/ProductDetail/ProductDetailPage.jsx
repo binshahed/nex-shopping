@@ -31,7 +31,7 @@ const ProductDetailPage = () => {
         </div>
       </div>
       {/* rating and reviews */}
-      <hr className="h-px my-4 bg-gray1 border-0" />
+      <hr className="h-px my-4 bg-gray-100 border-0" />
       <div className="mb-10">
         <h1 className="text-2xl text-center font-bold py-10">
           Rating & Reviews

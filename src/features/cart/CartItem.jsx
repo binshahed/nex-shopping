@@ -15,22 +15,22 @@ const CartItem = ({ product }) => {
     dispatch(deleteItemFromCare(product?._id));
   };
   return (
-    <div className="border-b border-gray1  last:border-b-0 py-5">
+    <div className="border-b border-gray-100  last:border-b-0 py-5">
       <div className="grid grid-cols-12 gap-3 ">
         <div className="col-span-3 ">
           <img
             src={productImage}
-            className="rounded-lg border border-placeholder"
+            className="rounded-lg border border-gray-500"
             alt=""
           />
         </div>
         <div className="col-span-5 md:col-span-6">
           <p className="text-xl font-bold text">{product.name}</p>
           <div className="my-3">
-            <p className="text-sm text-placeholder">
+            <p className="text-sm text-gray-500">
               <span>Size: </span>Large
             </p>
-            <p className="text-sm text-placeholder">
+            <p className="text-sm text-gray-500">
               <span>Color: </span>White
             </p>
           </div>
@@ -44,7 +44,7 @@ const CartItem = ({ product }) => {
         </div>
         <div className="col-span-4 md:col-span-3">
           <div className="flex flex-col justify-between h-full">
-            <p className="text-right text-xl text-red ">
+            <p className="text-right text-xl text-red-600">
               <FontAwesomeIcon
                 className="cursor-pointer"
                 onClick={handleDeleteProductFromCart}
