@@ -152,7 +152,7 @@ const BillingAddress = ({ setNext }) => {
             <div className="md:w-full text-end">
               <button
                 disabled={isLoadingCreateProfile}
-                className="shadow bg-purple hover:bg-purple focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                className="shadow bg-purple-500 hover:bg-purple-500 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                 type="submit"
                 // onClick={() => setNext(true)}
               >

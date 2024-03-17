@@ -5,12 +5,12 @@ import { discountCalculator } from "@/utils/discountCalculator";
 const OrderItems = ({ product }) => {
   const { data: productImage } = useGetPhotosQuery(product?._id);
   return (
-    <div className="border-b border-gray1  last:border-b-0 py-5">
+    <div className="border-b border-gray-100  last:border-b-0 py-5">
       <div className="grid grid-cols-12 gap-3 ">
         <div className="col-span-3 ">
           <img
             src={productImage}
-            className="rounded-lg border  border-gray1"
+            className="rounded-lg border  border-gray-100"
             alt=""
           />
         </div>
@@ -18,11 +18,11 @@ const OrderItems = ({ product }) => {
           <p className="text-lg font-bo text">{product.name}</p>
 
           <div>
-            <p className="font-bold text-purple">
+            <p className="font-bold text-purple-500">
               {product?.quantity} X $
               {discountCalculator(product?.price, product?.discountPercentage)}{" "}
               {product.discountPercentage === 0 && (
-                <span className="font-bold text-placeholder line-through ml-2">
+                <span className="font-bold text-gray-500 line-through ml-2">
                   ${product?.price}
                 </span>
               )}

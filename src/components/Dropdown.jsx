@@ -37,14 +37,14 @@ const Dropdown = ({ children }) => {
             {!store.user && (
               <Link
                 to="/signin"
-                className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-800 hover:bg-gray1"
+                className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-800 hover:bg-gray-100"
                 role="menuitem"
               >
                 Login
               </Link>
             )}
             {store.user && (
-              <p className="px-4 py-3 bg-purple text-white cursor-pointer">
+              <p className="px-4 py-3 bg-purple-500 text-white cursor-pointer">
                 {store.user.name}
               </p>
             )}
@@ -53,7 +53,7 @@ const Dropdown = ({ children }) => {
                 to={item.to}
                 key={index}
                 href="#"
-                className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-800 hover:bg-gray1"
+                className="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-gray-800 hover:bg-gray-100"
                 role="menuitem"
               >
                 {item.name}
@@ -62,7 +62,7 @@ const Dropdown = ({ children }) => {
             {store.user && (
               // <Button handleButtonClick={handleLogout}>Logout</Button>
               <p
-                className="px-4 py-3 hover:bg-gray1 cursor-pointer"
+                className="px-4 py-3 hover:bg-gray-100 cursor-pointer"
                 onClick={handleLogout}
               >
                 Logout

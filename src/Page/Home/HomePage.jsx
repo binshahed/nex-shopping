@@ -26,7 +26,7 @@ const HomePage = () => {
       {isLoading ? (
         <SpinnerLg />
       ) : isError ? (
-        <h1 className="text-2xl text-red py-10 text-center">{error?.error}</h1>
+        <h1 className="text-2xl text-red-600 py-10 text-center">{error?.error}</h1>
       ) : (
         <>
           <NewArrivals products={data} />

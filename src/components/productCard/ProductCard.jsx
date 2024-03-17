@@ -39,7 +39,7 @@ const ProductCard = ({ product }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}
-      className="w-full max-w-sm bg-white  rounded-lg  dark:bg-gray-800 dark:border-gray-700 border border-gray1"
+      className="w-full max-w-sm bg-white  rounded-lg  dark:bg-gray-800 dark:border-gray-700 border border-gray-100"
     >
       <img
         className="p-4 rounded-t-lg h-full "
@@ -59,7 +59,7 @@ const ProductCard = ({ product }) => {
           <div>
             <span className="text-xl font-bold  mr-2">${discountPrice}</span>
             {product?.discountPercentage > 0 && (
-              <span className="font-bold text-placeholder line-through">
+              <span className="font-bold text-gray-500 line-through">
                 ${parseFloat(product?.price)}
               </span>
             )}
@@ -67,7 +67,7 @@ const ProductCard = ({ product }) => {
 
           <Tooltip message="Add to cart">
             <button
-              className="basic-button bg-lightGray text-primary"
+              className="basic-button bg-gray-200 text-primary"
               onClick={handleCartAdd}
             >
               <FontAwesomeIcon icon={faCartPlus} />

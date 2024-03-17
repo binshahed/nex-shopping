@@ -7,7 +7,7 @@ import gym from "@/assets/dressStyle/gym.png";
 const DressStyle = () => {
   return (
     <div className="container mx-auto">
-      <div className="bg-gray1 rounded-xl p-10">
+      <div className="bg-gray-100 rounded-xl p-10">
         <h1 className="text-2xl text-center font-bold pb-10">
           BROWSE BY DRESS STYLE
         </h1>

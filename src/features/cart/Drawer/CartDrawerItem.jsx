@@ -42,7 +42,7 @@ const CartDrawerItem = ({ product }) => {
           <div className="flex">
             <button
               type="button"
-              className="font-medium text-red hover:text-indigo-500"
+              className="font-medium text-red-600 hover:text-indigo-500"
               onClick={handleDeleteProductFromCart}
             >
               Remove

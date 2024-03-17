@@ -94,7 +94,7 @@ export default function CartDrawer({ open, setOpen, cart }) {
                         <p>
                           or{" "}
                           <button
-                            className="font-medium text-purple hover:text-indigo-500"
+                            className="font-medium text-purple-500 hover:text-indigo-500"
                             onClick={() => setOpen(false)}
                           >
                             Continue Shopping
