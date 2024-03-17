@@ -1,4 +1,4 @@
-import bannerImg from "@/assets/banner/model.png";
+import bannerImg from "@/assets/banner/model2.png";
 import Button from "@/components/buttons/Button";
 
 const TopBanner = () => {

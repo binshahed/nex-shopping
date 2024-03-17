@@ -53,6 +53,20 @@ export const productApi = apiSlice.injectEndpoints({
         }
       },
     }),
+    getProductSearch: builder.mutation({
+      query: (searchValue) => ({
+        url: `/product/search?q=${searchValue}`,
+        method: "POST",
+      }),
+      async onQueryStarted(arg, { queryFulfilled }) {
+        try {
+          const result = await queryFulfilled;
+          return result;
+        } catch (err) {
+          console.log(err);
+        }
+      },
+    }),
     getFiltersProducts: builder.mutation({
       query: (data) => ({
         url: "/product/filter",
@@ -78,4 +92,5 @@ export const {
   useGetProductQuery,
   useAddProductsMutation,
   useGetFiltersProductsMutation,
+  useGetProductSearchMutation,
 } = productApi;

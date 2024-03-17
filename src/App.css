@@ -5,9 +5,9 @@ header {
   z-index: 10;
 }
 
-/* .basic-button {
+.basic-button {
   @apply bg-primary text-white p-2  px-8 rounded-3xl text-center  hover:bg-gray-500 transition delay-150 hover:text-white;
-} */
+}
 
 .navbar ul a.active {
   color: rgb(34 197 94);
@@ -17,17 +17,17 @@ input {
   --tw-ring-shadow: 0 0 #000 !important;
 }
 
-/* input:disabled {
+input:disabled {
   @apply bg-gray-100 cursor-not-allowed;
-} */
+}
 
-/* .input-field {
+.input-field {
   @apply appearance-none block w-full text-pretty border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white;
-} */
+}
 
-/* button:disabled {
+button:disabled {
   @apply bg-gray-100 cursor-not-allowed;
-} */
+}
 
 .custom-input {
   @apply bg-gray-100 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-gray-600 focus:border-primary block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
