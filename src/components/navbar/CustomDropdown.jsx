@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoggedOut } from "@/store/features/auth/authSlice";
@@ -21,7 +19,6 @@ const CustomDropdown = () => {
 
   return (
     <Dropdown
-     
       label=""
       dismissOnClick={false}
       renderTrigger={() => (
@@ -41,7 +38,7 @@ const CustomDropdown = () => {
     >
       <Dropdown.Header className="cursor-pointer hover:bg-gray-100">
         {user ? (
-          <Link to='/profile'>
+          <Link to="/profile">
             <p className="block text-sm">{user?.name}</p>
             <p className="block truncate text-sm font-medium">{user?.email}</p>
           </Link>

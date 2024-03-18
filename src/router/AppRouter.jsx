@@ -24,7 +24,7 @@ import ProfilePage from "@/Page/Profile/ProfilePage";
 import HomePage from "@/Page/Home/HomePage";
 import CartPage from "@/Page/CartPage/CartPage";
 import ProductDetailPage from "@/Page/ProductDetail/ProductDetailPage";
-import { lazy } from "react";
+// import { lazy } from "react";
 
 // const HomePage = lazy(() => import("@/Page/Home/HomePage"));
 // const ProductDetailPage = lazy(() =>

@@ -3,7 +3,7 @@ import {
   useGetProfileQuery,
 } from "@/store/features/profile/profileApi";
 import { Spinner } from "flowbite-react";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
 
