@@ -11,13 +11,16 @@ export const brandApi = apiSlice.injectEndpoints({
         },
         body: JSON.stringify(data),
       }),
+      invalidatesTags: ["brands"],
     }),
     getBrands: builder.query({
       query: () => ({
         url: "/brand",
         method: "GET",
       }),
+      providesTags: ["brands"],
     }),
+
     getBrandById: builder.query({
       query: (id) => ({
         url: `/brand/${id}`,

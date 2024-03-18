@@ -3,7 +3,7 @@ import Button from "@/components/buttons/Button";
 
 const TopBanner = () => {
   return (
-    <div className="bg-gray-200">
+    <div className="bg-gray-300">
       <div className="container mx-auto flex items-center justify-center ">
         <div className="grid grid-cols-12">
           <div className="col-span-12 sm:col-span-12 md:col-span-7">

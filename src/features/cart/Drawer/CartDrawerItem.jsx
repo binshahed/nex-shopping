@@ -2,7 +2,7 @@
 
 import { useDispatch } from "react-redux";
 import { useGetPhotosQuery } from "@/store/features/product/productApi";
-import { deleteItemFromCare } from "@/store/features/cart/CartSlice";
+import { deleteItemFromCaret } from "@/store/features/cart/CartSlice";
 import AddCart from "@/components/cart/AddCart";
 import { discountCalculator } from "@/utils/discountCalculator";
 
@@ -10,7 +10,7 @@ const CartDrawerItem = ({ product }) => {
   const dispatch = useDispatch();
   const { data: productImage } = useGetPhotosQuery(product?._id);
   const handleDeleteProductFromCart = () => {
-    dispatch(deleteItemFromCare(product?._id));
+    dispatch(deleteItemFromCaret(product?._id));
   };
   return (
     <li className="flex py-6">

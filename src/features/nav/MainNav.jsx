@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import brandLogo from "@/assets/logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Dropdown from "@/components/Dropdown";
+
 import CartDrawer from "../cart/Drawer/CartDrawer";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import Search from "./Search";
+import CustomDropdown from "@/components/navbar/CustomDropdown";
 
 const MainNav = () => {
   const cart = useSelector((state) => state.cart);
@@ -16,7 +17,7 @@ const MainNav = () => {
     { id: 1, name: "Shop", path: "/dashboard" },
     { id: 2, name: "Filter", path: "/filter" },
     { id: 3, name: "New Arrivals", path: "/new-arrival" },
-    { id: 4, name: "Brands", path: "/admin" }
+    { id: 4, name: "Brands", path: "/admin" },
   ];
 
   const [isMenuOpen, setMenuOpen] = useState(false);
@@ -64,6 +65,8 @@ const MainNav = () => {
                 className="mb-4 md:mb-0 md:mr-4 p-2"
               />
             </Link>
+
+            {/* for mobile device  */}
             <div className="flex items-center ml-4 md:hidden">
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -81,13 +84,7 @@ const MainNav = () => {
                   </div>
                 )}
               </motion.button>
-
-              <Dropdown>
-                <FontAwesomeIcon
-                  icon={faUser}
-                  className="text-xl cursor-pointer ml-2"
-                />
-              </Dropdown>
+              <CustomDropdown />
             </div>
           </div>
 
@@ -110,7 +107,7 @@ const MainNav = () => {
             </li>
           </ul>
           <div className="flex items-center">
-            <div className="flex items-center ml-4 hidden md:block mb-4 md:mb-0">
+            <div className="md:flex items-center ml-4 hidden  mb-4 md:mb-0">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 type="button"
@@ -128,12 +125,7 @@ const MainNav = () => {
                 )}
               </motion.button>
 
-              <Dropdown>
-                <FontAwesomeIcon
-                  icon={faUser}
-                  className="text-xl cursor-pointer ml-2"
-                />
-              </Dropdown>
+              <CustomDropdown />
             </div>
           </div>
         </nav>

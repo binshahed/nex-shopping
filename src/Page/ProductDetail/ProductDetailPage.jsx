@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import ProductDetail from "@/features/productDetail/ProductDetail";
 import ProductGallery from "@/features/productDetail/ProductGallery";
-import ReviewCard from "@/features/review/ReviewCard";
 import Subscribe from "@/features/subscribe/Subscribe";
 import { useGetProductQuery } from "@/store/features/product/productApi";
 import { useEffect } from "react";
 import LoadingPage from "@/components/global/LoadingPage";
+import ProductReview from "@/features/productDetail/ProductReview";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
@@ -20,7 +20,7 @@ const ProductDetailPage = () => {
   ) : (
     <div className="container mx-auto">
       {/* product detail  */}
-      <div className="my-10">
+      <div className="my-10 bg-white shadow p-4 rounded-lg">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-6">
             <ProductGallery />
@@ -31,27 +31,16 @@ const ProductDetailPage = () => {
         </div>
       </div>
       {/* rating and reviews */}
-      <hr className="h-px my-4 bg-gray-100 border-0" />
-      <div className="mb-10">
+
+      <div className="mb-10 bg-white mx-auto justify-center align-middle p-8 rounded-lg shadow">
         <h1 className="text-2xl text-center font-bold py-10">
           Rating & Reviews
         </h1>
-        <div className="grid grid-cols-12 gap-10">
-          <div className="col-span-12 md:col-span-4">
-            <ReviewCard />
-          </div>
-          <div className="col-span-12 md:col-span-4">
-            <ReviewCard />
-          </div>
-          <div className="col-span-12 md:col-span-4">
-            <ReviewCard />
-          </div>
-          <div className="col-span-12 md:col-span-4">
-            <ReviewCard />
-          </div>
-          <div className="col-span-12 md:col-span-4">
-            <ReviewCard />
-          </div>
+        <div className="grid grid-cols-12 gap-2 justify-center align-middle ">
+          <ProductReview />
+          <ProductReview />
+          <ProductReview />
+          <ProductReview />
         </div>
       </div>
       <Subscribe />

@@ -11,15 +11,18 @@ export default {
         sm: "2rem",
         lg: "4rem",
         xl: "5rem",
-        "2xl": "6rem"
-      }
+        "2xl": "6rem",
+      },
     },
     extend: {},
     colors: {
       transparent: "transparent",
       primary: colors.black,
-      ...colors
-    }
+      background: colors.gray[50],
+      background1: colors.gray[100],
+      background2: colors.white,
+      ...colors,
+    },
   },
-  plugins: []
+  plugins: [],
 };

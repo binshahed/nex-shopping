@@ -7,7 +7,7 @@ import ProductDetailCart from "./ProductDetailCart";
 import { useEffect } from "react";
 
 const ProductDetail = ({ product }) => {
-  const { name, discountPercentage, price } = product;
+  const { name, discountPercentage, price } = product || {};
 
   const discountPrice = discountCalculator(price, discountPercentage);
 
@@ -21,14 +21,19 @@ const ProductDetail = ({ product }) => {
         <p className="text-2xl font-black">{name}</p>
         <Rating ratings="4" />
         <p>
-          {" "}
-          <span className="text-3xl font-bold  mr-2">${discountPrice}</span>
-          <span className="font-bold text-xl text-gray-500 line-through">
-            ${price}
-          </span>
-          <span className=" text-lg ml-5 bg-red-600 bg-opacity-10 px-5 py-1 rounded-xl text-red-600 ">
-            -{discountPercentage}%
-          </span>
+          {discountPercentage === 0 ? (
+            <span className="text-3xl font-bold  mr-2">${price}</span>
+          ) : (
+            <>
+              <span className="text-3xl font-bold  mr-2">${discountPrice}</span>
+              <span className="font-bold text-xl text-gray-500 line-through">
+                ${price}
+              </span>
+              <span className=" text-lg ml-5 bg-red-600 bg-opacity-10 px-5 py-1 rounded-xl text-red-600 ">
+                -{discountPercentage}%
+              </span>
+            </>
+          )}
         </p>
         <p className="my-5">
           This graphic t-shirt which is perfect for any occasion. Crafted from a
