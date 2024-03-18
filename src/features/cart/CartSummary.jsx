@@ -13,7 +13,7 @@ const CartSummary = ({ product }) => {
   const grandTotalPrice = totalProductPrice + shippingPrice;
 
   return (
-    <div className="border border-gray-100 rounded-lg p-5 mb-5">
+    <div className="border bg-background2 shadow border-gray-100 rounded-lg p-5 mb-5">
       <p className="text-2xl font-bold">Order Summary</p>
       <div className="mt-5 ">
         <div className="flex mb-2">

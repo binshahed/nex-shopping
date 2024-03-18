@@ -1,4 +1,4 @@
-import { lazy } from "react";
+// import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Footer from "@/features/footer/Footer";
@@ -20,17 +20,23 @@ import AddCategory from "@/Page/Dashboard/AddCategory/AddCategory";
 import PrivateRoute from "./PrivateRoute";
 import OrderPage from "@/Page/OrderPage/OrderPage";
 import Filter from "@/Page/filter/FilterPage";
+import ProfilePage from "@/Page/Profile/ProfilePage";
+import HomePage from "@/Page/Home/HomePage";
+import CartPage from "@/Page/CartPage/CartPage";
+import ProductDetailPage from "@/Page/ProductDetail/ProductDetailPage";
+// import { lazy } from "react";
 
-const HomePage = lazy(() => import("@/Page/Home/HomePage"));
-const ProductDetailPage = lazy(() =>
-  import("@/Page/ProductDetail/ProductDetailPage")
-);
-const CartPage = lazy(() => import("@/Page/CartPage/CartPage"));
+// const HomePage = lazy(() => import("@/Page/Home/HomePage"));
+// const ProductDetailPage = lazy(() =>
+//   import("@/Page/ProductDetail/ProductDetailPage")
+// );
+// const CartPage = lazy(() => import("@/Page/CartPage/CartPage"));
 
 const AppRouter = () => {
   const authCheck = useAuthCheck();
+
   return (
-    <main className="overflow-hidden relative">
+    <main className="overflow-hidden relative bg-background">
       {!authCheck ? (
         <Spinner />
       ) : (
@@ -48,6 +54,14 @@ const AppRouter = () => {
             element={
               <PrivateRoute>
                 <OrderPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <ProfilePage />
               </PrivateRoute>
             }
           />

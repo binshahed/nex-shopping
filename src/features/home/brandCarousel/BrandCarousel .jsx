@@ -5,6 +5,8 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 
+import { motion } from "framer-motion";
+
 // import required modules
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import { useGetBrandsQuery } from "@/store/features/brand/brandApi";
@@ -19,7 +21,12 @@ const BrandCarousel = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <div className="bg-primary py-10 ">
+        <motion.div
+          className="bg-primary py-10 "
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
           <div className="container mx-auto">
             <Swiper
               autoplay={{ delay: 3000 }}
@@ -52,7 +59,7 @@ const BrandCarousel = () => {
               ))}
             </Swiper>
           </div>
-        </div>
+        </motion.div>
       )}
     </>
   );

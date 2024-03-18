@@ -21,8 +21,9 @@ const HomePage = () => {
   return (
     <div>
       <TopBanner />
+     
       <BrandCarousel />
-
+    
       {isLoading ? (
         <SpinnerLg />
       ) : isError ? (

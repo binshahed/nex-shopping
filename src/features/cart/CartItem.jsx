@@ -5,14 +5,14 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { useGetPhotosQuery } from "@/store/features/product/productApi";
 import { discountCalculator } from "@/utils/discountCalculator";
 import { useDispatch } from "react-redux";
-import { deleteItemFromCare } from "@/store/features/cart/CartSlice";
+import { deleteItemFromCaret } from "@/store/features/cart/CartSlice";
 const CartItem = ({ product }) => {
   const { data: productImage } = useGetPhotosQuery(product?._id);
 
   const dispatch = useDispatch();
 
   const handleDeleteProductFromCart = () => {
-    dispatch(deleteItemFromCare(product?._id));
+    dispatch(deleteItemFromCaret(product?._id));
   };
   return (
     <div className="border-b border-gray-100  last:border-b-0 py-5">

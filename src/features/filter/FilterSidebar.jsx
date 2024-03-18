@@ -29,7 +29,7 @@ const FilterSidebar = ({ data, states }) => {
   };
 
   return (
-    <div className="border border-gray-500 rounded-lg p-4 col-span-12 md:col-span-3">
+    <div className="border  rounded-lg p-4 col-span-12 md:col-span-3 bg-white">
       <div className="flex justify-between">
         <span className="font-bold">Filter</span>
         <FontAwesomeIcon icon={faSliders} />
@@ -37,7 +37,7 @@ const FilterSidebar = ({ data, states }) => {
       <hr className="my-5 border-gray-100" />
 
       {data && (
-        <Accordion className="border-gray-100 my-2">
+        <Accordion className="bg-white my-2">
           <Accordion.Panel>
             <Accordion.Title className="focus:ring-0">
               Categories

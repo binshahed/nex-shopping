@@ -40,11 +40,12 @@ const AddProduct = () => {
 
   return (
     <div className="py-20">
-      <form className="max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        className="max-w-md mx-auto  w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md p-8 "
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <div className="relative z-0 w-full mb-5 group">
-          <label className="custom-label">
-            Product Name
-          </label>
+          <label className="custom-label">Product Name</label>
           <input
             name="name"
             type="text"
@@ -55,9 +56,7 @@ const AddProduct = () => {
           />
         </div>
         <div className="relative z-0 w-full mb-5 group">
-          <label className="custom-label">
-            Description
-          </label>
+          <label className="custom-label">Description</label>
           <input
             type="text"
             name="description"
@@ -68,9 +67,7 @@ const AddProduct = () => {
           />
         </div>
         <div className="relative z-0 w-full mb-5 group">
-          <label className="custom-label">
-            Product Price
-          </label>
+          <label className="custom-label">Product Price</label>
           <input
             type="number"
             name="price"
@@ -81,9 +78,7 @@ const AddProduct = () => {
           />
         </div>
         <div className="relative z-0 w-full mb-5 group">
-          <label className="custom-label">
-            Stock Quantity
-          </label>
+          <label className="custom-label">Stock Quantity</label>
           <input
             type="number"
             name="name"
@@ -94,9 +89,7 @@ const AddProduct = () => {
           />
         </div>
         <div className="relative z-0 w-full mb-5  group">
-          <label className="custom-label">
-            Category
-          </label>
+          <label className="custom-label">Category</label>
           <select
             name="category"
             className="custom-input"

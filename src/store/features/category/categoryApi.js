@@ -7,6 +7,7 @@ export const categoryApi = apiSlice.injectEndpoints({
         url: "/category",
         method: "GET",
       }),
+      providesTags: ["categories"],
     }),
     getCategoryById: builder.query({
       query: (id) => ({
@@ -23,6 +24,7 @@ export const categoryApi = apiSlice.injectEndpoints({
         },
         body: JSON.stringify(data),
       }),
+      invalidatesTags: ["categories"],
     }),
   }),
 });

@@ -39,7 +39,7 @@ const ProductCard = ({ product }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.1 }}
-      className="w-full max-w-sm bg-white  rounded-lg  border border-gray-100"
+      className="w-full max-w-sm bg-white shadow rounded-lg  border border-gray-100"
     >
       <img
         className="p-4 rounded-t-lg h-full "

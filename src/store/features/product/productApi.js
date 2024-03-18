@@ -1,4 +1,5 @@
 import { apiSlice } from "../api/apiSlice";
+import { userLoggedOut } from "../auth/authSlice";
 import { getProducts } from "./productSlice";
 
 export const productApi = apiSlice.injectEndpoints({
@@ -14,6 +15,9 @@ export const productApi = apiSlice.injectEndpoints({
           const result = await queryFulfilled;
           dispatch(getProducts(result.data));
         } catch (err) {
+          if (err?.error?.originalStatus === 401) {
+            dispatch(userLoggedOut());
+          }
           console.log(err);
         }
       },
