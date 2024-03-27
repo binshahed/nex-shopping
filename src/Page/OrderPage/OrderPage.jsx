@@ -1,13 +1,14 @@
 import OrderPaymentForm from "@/features/Order/forms/OrderPaymentForm";
 import OrderProductList from "@/features/Order/OrderProductList";
 import OrderSummery from "@/features/Order/OrderSummery";
+import PageLayout from "@/features/settings/PageLayout";
 import { useSelector } from "react-redux";
 
 const OrderPage = () => {
   const cart = useSelector((state) => state.cart);
 
   return (
-    <div className="container mx-auto py-10">
+    <PageLayout>
       <h1 className="text-4xl text-center font-bold py-5">Place Your Order</h1>
       <div className="grid grid-cols-12 gap-4 ">
         <div className="col-span-12 md:col-span-5">
@@ -20,7 +21,7 @@ const OrderPage = () => {
           <OrderPaymentForm />
         </div>
       </div>
-    </div>
+    </PageLayout>
   );
 };
 

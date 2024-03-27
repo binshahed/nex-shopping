@@ -30,7 +30,7 @@ const SignIn = () => {
   }
 
   return (
-    <section className="  py-32">
+    <section className="py-32">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto  lg:py-0">
         <Link
           to="/"

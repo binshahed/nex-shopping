@@ -1,8 +1,5 @@
-// import { lazy } from "react";
+import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-
-import Footer from "@/features/footer/Footer";
-
 import SignIn from "@/Page/SignIn/SignInPage";
 import SignUp from "@/Page/SignUp/SignUp";
 import AddProduct from "@/Page/Dashboard/AddProduct/AddProduct";
@@ -10,9 +7,7 @@ import useAuthCheck from "@/hooks/useAuthCheck";
 import Spinner from "@/components/global/Spinner";
 import AdminRoute from "./AdminRoute";
 import PublicRoute from "./PublicRoute";
-
 import Dashboard from "@/Page/Dashboard/Dashboard";
-
 import AddBrand from "@/Page/Dashboard/AddBrand/AddBrand";
 import ErrorPage from "@/components/global/NotFound/ErrorPage";
 import DashboardHome from "@/Page/Dashboard/DashboardHome";
@@ -21,12 +16,14 @@ import PrivateRoute from "./PrivateRoute";
 import OrderPage from "@/Page/OrderPage/OrderPage";
 import Filter from "@/Page/filter/FilterPage";
 import ProfilePage from "@/Page/Profile/ProfilePage";
-import HomePage from "@/Page/Home/HomePage";
+// import HomePage from "@/Page/Home/HomePage";
 import CartPage from "@/Page/CartPage/CartPage";
 import ProductDetailPage from "@/Page/ProductDetail/ProductDetailPage";
+import RootRoute from "./RootRoute";
+import Nav from "@/features/shared/Nav/Nav";
 // import { lazy } from "react";
 
-// const HomePage = lazy(() => import("@/Page/Home/HomePage"));
+const HomePage = lazy(() => import("@/Page/Home/HomePage"));
 // const ProductDetailPage = lazy(() =>
 //   import("@/Page/ProductDetail/ProductDetailPage")
 // );
@@ -36,51 +33,39 @@ const AppRouter = () => {
   const authCheck = useAuthCheck();
 
   return (
-    <main className="overflow-hidden relative bg-background">
+    <>
       {!authCheck ? (
         <Spinner />
       ) : (
         <Routes>
-          <Route path="/" element={<HomePage />} errorElement={<ErrorPage />} />
-          <Route
-            path="/filter"
-            element={<Filter />}
-            errorElement={<ErrorPage />}
-          />
+          {/* public route  */}
+          <Route element={<RootRoute />}>
+            <Route
+              path="/"
+              element={<HomePage />}
+              errorElement={<ErrorPage />}
+            />
+            <Route
+              path="/filter"
+              element={<Filter />}
+              errorElement={<ErrorPage />}
+            />
+            <Route path="/product/:productId" element={<ProductDetailPage />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Route>
 
-          <Route path="/cart" element={<CartPage />} />
-          <Route
-            path="/order"
-            element={
-              <PrivateRoute>
-                <OrderPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <PrivateRoute>
-                <ProfilePage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/signin"
-            element={
-              <PublicRoute>
-                <SignIn />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-              <PublicRoute>
-                <SignUp />
-              </PublicRoute>
-            }
-          />
+          {/* private route  */}
+          <Route element={<PrivateRoute />}>
+            <Route path="/order" element={<OrderPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+          </Route>
+          {/* auth route  */}
+          <Route element={<PublicRoute />}>
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Route>
+
+          {/* admin route  */}
           <Route
             path="/dashboard"
             element={
@@ -93,13 +78,21 @@ const AppRouter = () => {
             <Route path="addProduct" element={<AddProduct />} />
             <Route path="addBrand" element={<AddBrand />} />
             <Route path="addCategory" element={<AddCategory />} />
+            <Route path="*" element={<div>page not found</div>} />
           </Route>
-          <Route path="/product/:productId" element={<ProductDetailPage />} />
-          <Route path="/*" element={<div>page not found</div>} />
+          {/* not found route  */}
+          <Route
+            path="/*"
+            element={
+              <div>
+                <Nav />
+                page not found
+              </div>
+            }
+          />
         </Routes>
       )}
-      <Footer />
-    </main>
+    </>
   );
 };
 
