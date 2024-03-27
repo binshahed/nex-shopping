@@ -22,7 +22,7 @@ const Subscribe = () => {
                 </div>
                 <input
                   type="search"
-                  className="outline-none block w-full p-2 pl-10 text-sm gray-500-text-gray-500 text-primary bg-gray-100  rounded-full bg-gray-50 focus:border-0 py-4"
+                  className="outline-none block w-full p-2 pl-10 text-sm gray-500-text-gray-500 text-primary bg-gray-100  rounded-full focus:border-0 py-4"
                   placeholder="Enter your email address"
                   required
                 />
