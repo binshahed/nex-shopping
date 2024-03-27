@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import Footer from "@/features/footer/Footer";
 import Nav from "@/features/shared/Nav/Nav";
 import { useAuth } from "@/hooks/useAuth";
