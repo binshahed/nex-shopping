@@ -2,8 +2,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { userLoggedOut } from "../auth/authSlice";
 
-// const baseUrl = "https://nex-shopping-server.onrender.com/api/v1";
-const baseUrl = "http://localhost:3001/api/v1";
+const baseUrl = "https://nex-shopping-server.onrender.com/api/v1";
+// const baseUrl = "http://localhost:3001/api/v1";
 
 export const apiSlice = createApi({
   reducerPath: "api",
