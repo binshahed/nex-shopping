@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Rating from "@/components/productCard/Rating";
 import { discountCalculator } from "@/utils/discountCalculator";
 import ProductDetailCart from "./ProductDetailCart";
@@ -42,7 +42,7 @@ const ProductDetail = ({ product }) => {
       </div>
       <hr className="h-px my-4 bg-gray-100 border-0" />
       {/* color  */}
-      <div>
+      {/* <div>
         <p className="text-lg text-gray-500 ">Select Colors</p>
         <ul className="flex">
           <Link className="mr-2" to="/">
@@ -56,9 +56,9 @@ const ProductDetail = ({ product }) => {
           </Link>
         </ul>
       </div>
-      <hr className="h-px my-4 bg-gray-100 border-0" />
+      <hr className="h-px my-4 bg-gray-100 border-0" /> */}
       {/* Size  */}
-      <div>
+      {/* <div>
         <p className="text-lg text-gray-500 ">Size</p>
         <button className="basic-button text-black bg-gray-100 mr-2 mb-2 md:mb-0">
           Small
@@ -73,7 +73,7 @@ const ProductDetail = ({ product }) => {
           X-Large
         </button>
       </div>
-      <hr className="h-px my-4 bg-gray-100 border-0" />
+      <hr className="h-px my-4 bg-gray-100 border-0" /> */}
       <ProductDetailCart product={product} />
     </div>
   );
