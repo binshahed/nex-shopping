@@ -1,7 +1,10 @@
 import { useParams } from "react-router-dom";
 import ProductDetail from "@/features/productDetail/ProductDetail";
 import ProductGallery from "@/features/productDetail/ProductGallery";
-import { useGetProductQuery } from "@/store/features/product/productApi";
+import {
+  useGetPhotosQuery,
+  useGetProductQuery,
+} from "@/store/features/product/productApi";
 import { useEffect } from "react";
 import LoadingPage from "@/components/global/LoadingPage";
 import ProductReview from "@/features/productDetail/ProductReview";
@@ -11,6 +14,7 @@ const ProductDetailPage = () => {
   const { productId } = useParams();
 
   const { data, isLoading } = useGetProductQuery(productId);
+  const { data: productImage } = useGetPhotosQuery(productId);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,7 +27,7 @@ const ProductDetailPage = () => {
       <div className="my-10 bg-white shadow p-4 rounded-lg">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-6">
-            <ProductGallery />
+            <ProductGallery productImage={productImage} />
           </div>
           <div className="col-span-12 md:col-span-6">
             <ProductDetail product={data} />
@@ -43,7 +47,6 @@ const ProductDetailPage = () => {
           <ProductReview />
         </div>
       </div>
-      
     </PageLayout>
   );
 };

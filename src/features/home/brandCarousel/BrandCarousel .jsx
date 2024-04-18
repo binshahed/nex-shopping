@@ -10,8 +10,8 @@ import { motion } from "framer-motion";
 // import required modules
 import { Autoplay, FreeMode, Pagination } from "swiper/modules";
 import { useGetBrandsQuery } from "@/store/features/brand/brandApi";
-import Loading from "@/components/global/Loading";
 import { Link } from "react-router-dom";
+import SpinnerLg from "@/components/global/SpinnerLg";
 
 const BrandCarousel = () => {
   const { data, isLoading } = useGetBrandsQuery();
@@ -19,7 +19,7 @@ const BrandCarousel = () => {
   return (
     <>
       {isLoading ? (
-        <Loading />
+        <SpinnerLg />
       ) : (
         <motion.div
           className="bg-primary py-10 "

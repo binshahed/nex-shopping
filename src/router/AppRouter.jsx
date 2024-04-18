@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import SignIn from "@/Page/SignIn/SignInPage";
 import SignUp from "@/Page/SignUp/SignUp";
@@ -21,6 +21,7 @@ import CartPage from "@/Page/CartPage/CartPage";
 import ProductDetailPage from "@/Page/ProductDetail/ProductDetailPage";
 import RootRoute from "./RootRoute";
 import Nav from "@/features/shared/Nav/Nav";
+import SpinnerLg from "@/components/global/SpinnerLg";
 // import { lazy } from "react";
 
 const HomePage = lazy(() => import("@/Page/Home/HomePage"));
@@ -42,7 +43,11 @@ const AppRouter = () => {
           <Route element={<RootRoute />}>
             <Route
               path="/"
-              element={<HomePage />}
+              element={
+                <Suspense fallback={<SpinnerLg/>}>
+                  <HomePage />
+                </Suspense>
+              }
               errorElement={<ErrorPage />}
             />
             <Route
